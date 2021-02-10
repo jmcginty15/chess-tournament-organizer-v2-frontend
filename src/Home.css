@@ -1,0 +1,29 @@
+.Home {
+    margin-top: 75px;
+}
+
+.Home-card {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    text-align: left;
+    justify-content: top;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Home-card-container {
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Home-form-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}

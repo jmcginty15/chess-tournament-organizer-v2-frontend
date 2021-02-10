@@ -1,0 +1,6 @@
+.IndTournament-body {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 25px;
+}

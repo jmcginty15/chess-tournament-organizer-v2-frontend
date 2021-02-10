@@ -1,0 +1,9 @@
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+
+.NavBar-link:hover {
+    cursor: pointer;
+}
+
+.NavBar-icon {
+    font-size: 20px;
+}

@@ -1,0 +1,78 @@
+.TournamentForm {
+    margin-top: 85px;
+    margin-bottom: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.TournamentForm-body {
+    padding-top: 0 !important;
+    text-align: left;
+}
+
+.TournamentForm-title {
+    padding-bottom: 0;
+}
+
+.TournamentForm-hr {
+    margin: 0;
+}
+
+.TournamentForm-timeControl-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-auto-flow: column;
+}
+
+.TournamentForm-number-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+}
+
+.TournamentForm-date-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+}
+
+.TournamentForm-custom-tc {
+    display: inline !important;
+    width: 90px !important;
+    height: 30px !important;
+    padding-top: 1px !important;
+}
+
+.TournamentForm-custom-label {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    font-size: small;
+    color: grey;
+    font-style: italic;
+}
+
+.TournamentForm-number-input {
+    display: inline !important;
+    width: 75px !important;
+    height: 30px !important;
+    padding-right: 2px !important;
+    padding-top: 2px !important;
+    float: right;
+}
+
+.TournamentForm-number-group {
+    width: 75% !important;
+}
+
+.TournamentForm-note {
+    font-style: small;
+    font-style: italic;
+    color: grey;
+}
+
+.TournamentForm-cancel-button {
+    margin-left: 10px;
+}

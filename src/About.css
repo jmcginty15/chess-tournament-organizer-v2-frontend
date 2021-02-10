@@ -1,0 +1,11 @@
+.About {
+    margin-top: 75px;
+}
+
+.About-text {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width:  50%;
+    margin: auto;
+    text-align: justify;
+}

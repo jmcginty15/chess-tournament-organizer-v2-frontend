@@ -1,0 +1,27 @@
+.SignupForm {
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+}
+
+.SignupForm-notice {
+    font-size: small;
+    color: gray;
+    margin: 0;
+}
+
+.SignupForm-alert {
+    font-size: small;
+    color: red;
+    margin: 0;
+}
+
+.SignupForm-check {
+    font-size:  small;
+    color: green;
+    margin: 0;
+}
+
+.SignupForm-alert-container {
+    margin-bottom: 10px;
+}

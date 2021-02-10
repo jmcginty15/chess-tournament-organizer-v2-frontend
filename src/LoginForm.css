@@ -1,0 +1,19 @@
+.LoginForm {
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+}
+
+#LoginForm-button {
+    margin-left: 5px;
+}
+
+.LoginForm-alert {
+    font-size: small;
+    color: red;
+    margin: 0;
+}
+
+.LoginForm-alert-container {
+    margin-bottom: 10px;
+}

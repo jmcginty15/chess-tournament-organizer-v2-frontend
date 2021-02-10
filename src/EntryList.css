@@ -1,0 +1,10 @@
+.EntryList {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.EntryList-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
