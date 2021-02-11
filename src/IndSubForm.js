@@ -1,15 +1,11 @@
+import { FormGroup, Label, Input } from 'reactstrap';
 import { useState, useEffect } from 'react';
-import {
-    FormGroup,
-    Label,
-    Input
-} from 'reactstrap';
 import './TournamentForm.css';
 
-const IndSubForm = ({ formData, sendChange }) => {
+const IndSubForm = ({ formData, tc, sendChange }) => {
     const [customTimeControl, setCustomTimeControl] = useState({
-        start: 45,
-        inc: 45
+        start: parseFloat(tc.slice(0, tc.indexOf('|'))),
+        inc: parseFloat(tc.slice(tc.indexOf('|') + 1))
     });
     const [categoryName, setCategoryName] = useState('Classical');
 
@@ -32,10 +28,13 @@ const IndSubForm = ({ formData, sendChange }) => {
     }
 
     const handleCustomChange = (evt) => {
-        setCustomTimeControl({
+        const newTimeControl = {
             ...customTimeControl,
             [evt.target.name]: evt.target.value
-        });
+        };
+        setCustomTimeControl(newTimeControl);
+        evt.customTimeControl = `${newTimeControl.start}|${newTimeControl.inc}`;
+        handleChange(evt);
     }
 
     return (
@@ -217,15 +216,15 @@ const IndSubForm = ({ formData, sendChange }) => {
             <div className="TournamentForm-date-container">
                 <FormGroup className="TournamentForm-date-input">
                     <Label>Registration open date:</Label>
-                    <Input type="datetime-local"></Input>
+                    <Input name="registrationOpen" type="datetime-local" value={formData.registrationOpen} onChange={handleChange}></Input>
                 </FormGroup>
                 <FormGroup className="TournamentForm-date-input">
                     <Label>Tournament start date:</Label>
-                    <Input type="datetime-local"></Input>
+                    <Input name="startDate" type="datetime-local" value={formData.startDate} onChange={handleChange}></Input>
                 </FormGroup>
                 <FormGroup className="TournamentForm-date-input">
                     <Label>Registration close date:</Label>
-                    <Input type="datetime-local"></Input>
+                    <Input name="registrationClose" type="datetime-local" value={formData.registrationClose} onChange={handleChange}></Input>
                 </FormGroup>
             </div>
             <p className="TournamentForm-note">

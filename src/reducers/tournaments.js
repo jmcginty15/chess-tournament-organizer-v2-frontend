@@ -1,4 +1,4 @@
-import { LOAD_TOURNAMENT, ENTER_TOURNAMENT } from '../actions/config';
+import { LOAD_TOURNAMENT, ENTER_TOURNAMENT, CREATE_TOURNAMENT } from '../actions/config';
 
 const INITIAL_STATE = {};
 
@@ -20,6 +20,14 @@ const tournaments = (state = INITIAL_STATE, action) => {
                     entries: [...entries]
                 }
             };
+        case CREATE_TOURNAMENT:
+            return {
+                ...state,
+                tournament: {
+                    ...action.payload.tournament,
+                    entries: []
+                }
+            }
         default:
             return state;
     }

@@ -53,7 +53,7 @@ const TournamentInfo = ({ tournament }) => {
                     </div>
                     <div className="TournamentInfo-right">
                         {tournament.director}<br />
-                        {capitalize(tournament.category)} - {tournament.timeControl}<br />
+                        {tournament.timeControl} - {capitalize(tournament.category)}<br />
                         {tournament.minPlayers}<br />
                         {tournament.maxPlayers}<br />
                         {tournament.entries.length}<br />

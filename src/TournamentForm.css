@@ -73,6 +73,22 @@
     color: grey;
 }
 
+.TournamentForm-alert {
+    font-style: small;
+    font-style: italic;
+    color: red;
+}
+
 .TournamentForm-cancel-button {
     margin-left: 10px;
+}
+
+.TournamentForm-team-label {
+    width: 100% !important;
+    padding-right: 5px !important;
+}
+
+.TournamentForm-team-count {
+    display: block;
+    float: right;
 }

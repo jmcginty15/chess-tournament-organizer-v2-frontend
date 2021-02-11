@@ -1,0 +1,31 @@
+.TournamentCard {
+    text-align: left;
+}
+
+.TournamentCard-subtitle {
+    color: grey;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.TournamentCard-body {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.TournamentCard-body-text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.TournamentCard-button-container {
+    text-align: right;
+}
+
+.TournamentCard-date {
+    float: right;
+}
+
+.TournamentCard-button {
+    margin-bottom: 5px;
+}

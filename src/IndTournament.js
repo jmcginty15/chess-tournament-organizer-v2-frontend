@@ -10,13 +10,12 @@ const IndTournament = ({ id }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!tournament) dispatch(loadTournament(id));
-        else if (tournament.id !== id) dispatch(loadTournament(id));
+        dispatch(loadTournament(id));
     }, [id]);
 
     return (
         <div className="IndTournament">
-            {tournament ? (
+            {tournament && tournament.id === id ? (
                 <div>
                     <h1>{tournament.name}</h1>
                     <div className="IndTournament-body">

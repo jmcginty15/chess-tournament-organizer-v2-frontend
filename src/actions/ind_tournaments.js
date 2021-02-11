@@ -1,4 +1,4 @@
-import { BASE_URL, LOAD_TOURNAMENT, ENTER_TOURNAMENT } from './config';
+import { BASE_URL, LOAD_TOURNAMENT, ENTER_TOURNAMENT, CREATE_TOURNAMENT } from './config';
 import axios from 'axios';
 
 export const loadTournament = (id) => {
@@ -25,6 +25,18 @@ export const enterTournament = (id, username, token) => {
     }
 }
 
+export const createTournament = (tournament) => {
+    return async function (dispatch) {
+        try {
+            const res = await axios.post(`${BASE_URL}/tournaments/ind/create`, tournament);
+            const newTournament = res.data.tournament;
+            dispatch(createdTournament(newTournament));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
 const gotTournament = (tournament) => {
     return {
         type: LOAD_TOURNAMENT,
@@ -39,6 +51,15 @@ const enteredTournament = (entry) => {
         type: ENTER_TOURNAMENT,
         payload: {
             entry: entry
+        }
+    };
+}
+
+const createdTournament = (tournament) => {
+    return {
+        type: CREATE_TOURNAMENT,
+        payload: {
+            tournament: tournament
         }
     };
 }
