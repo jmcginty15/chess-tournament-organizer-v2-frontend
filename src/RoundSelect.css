@@ -1,0 +1,25 @@
+.RoundSelect-tab {
+    font-weight: normal;
+    color: black !important;
+    border-style: solid !important;
+    border-color: #dddddd !important;
+}
+
+.RoundSelect-tab.active {
+    font-weight: 600 !important;
+    background-color: #eeeeee !important;
+}
+
+.RoundSelect-tab:hover {
+    cursor: pointer;
+    border-color: grey !important;
+}
+
+.RoundSelect-nav {
+    width: 100% !important;
+    height: fit-content !important;
+}
+
+.RoundSelect-nav-content {
+    width: 100% !important;
+}

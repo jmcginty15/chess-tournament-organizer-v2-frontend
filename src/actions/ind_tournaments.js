@@ -37,6 +37,19 @@ export const createTournament = (tournament) => {
     }
 }
 
+export const startTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            const res = await axios.post(`${BASE_URL}/tournaments/ind/${id}/initialize`, { _token: token });
+            const tournament = res.data.tournament;
+            console.log(tournament);
+            dispatch(gotTournament(tournament));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
 export const gotTournament = (tournament) => {
     return {
         type: LOAD_TOURNAMENT,
