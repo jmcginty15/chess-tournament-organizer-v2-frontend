@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, Button } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import EntryCard from './EntryCard';
 import './EntryList.css';
 
@@ -6,9 +6,6 @@ const EntryList = ({ entries }) => {
     return (
         <div className="EntryList">
             <Card>
-                <CardHeader>
-                    <h6 className="EntryList-header">Entries</h6>
-                </CardHeader>
                 {entries.length ? (
                     <CardBody>
                         {entries.map(entry => <EntryCard key={entry.player} entry={entry} />)}

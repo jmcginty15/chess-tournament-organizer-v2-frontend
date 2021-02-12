@@ -1,0 +1,27 @@
+.StandingsCard-body {
+    text-align: left;
+}
+
+.StandingsCard-rating {
+    color: grey;
+}
+
+.StandingsCard-text {
+    width: 100%;
+}
+
+.StandingsCard-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    float: right;
+    width: fit-content;
+}
+
+.StandingsCard-score-container {
+    float: right;
+}
+
+.StandingsCard-grid {
+    display: grid;
+    grid-template-columns: 5% 70% 25%;
+}

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { enterTournament } from './actions/ind_tournaments';
+import { enterTeamTournament } from './actions/team_tournaments';
 import { parseDate } from './helpers/dates';
 import { capitalize } from './helpers/strings';
 import './TournamentInfo.css';
@@ -25,7 +26,8 @@ const TournamentInfo = ({ tournament }) => {
 
     const handleClick = () => {
         if (loggedInUser) {
-            dispatch(enterTournament(tournament.id, loggedInUser.username, loggedInUser._token));
+            if (tournament.teamSize) dispatch(enterTeamTournament(tournament.id, loggedInUser.username, loggedInUser._token));
+            else dispatch(enterTournament(tournament.id, loggedInUser.username, loggedInUser._token));
             setAlreadyEntered(true);
         }
         else history.push('/');
@@ -44,6 +46,7 @@ const TournamentInfo = ({ tournament }) => {
                         Min entries:<br />
                         Max entries:<br />
                         Current entries:<br />
+                        {tournament.teamSize ? <span>Players per team:<br /></span> : null}
                         Number of rounds:<br />
                         Days per round:<br />
                         Current round:<br />
@@ -57,6 +60,7 @@ const TournamentInfo = ({ tournament }) => {
                         {tournament.minPlayers}<br />
                         {tournament.maxPlayers}<br />
                         {tournament.entries.length}<br />
+                        {tournament.teamSize ? <span>{tournament.teamSize}<br /></span> : null}
                         {tournament.rounds}<br />
                         {tournament.roundLength}<br />
                         {tournament.currentRound ? tournament.currentRound : 'Not started'}<br />

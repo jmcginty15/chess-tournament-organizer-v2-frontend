@@ -13,6 +13,8 @@ const TournamentsPage = () => {
     useEffect(() => {
         axios.get(`${BASE_URL}/tournaments/ind/all`)
             .then(res => setIndTournaments(res.data.tournaments));
+        axios.get(`${BASE_URL}/tournaments/team/all`)
+            .then(res => setTeamTournaments(res.data.tournaments));
     }, []);
 
     return (
@@ -22,7 +24,7 @@ const TournamentsPage = () => {
                 <div className="TournamentsPage-list">
                     <Card>
                         <CardHeader>
-                            <h1>Individual</h1>
+                            <h2>Individual</h2>
                         </CardHeader>
                         <CardBody className="TournamentsPage-list-body">
                             {indTournaments ? <TournamentList tournaments={indTournaments} type="I" /> : null}
@@ -32,10 +34,10 @@ const TournamentsPage = () => {
                 <div className="TournamentsPage-list">
                     <Card>
                         <CardHeader>
-                            <h1>Team</h1>
+                            <h2>Team</h2>
                         </CardHeader>
                         <CardBody className="TournamentsPage-list-body">
-                            {teamTournaments ? <TournamentList tournaments={teamTournaments} /> : null}
+                            {teamTournaments ? <TournamentList tournaments={teamTournaments} type="T" /> : null}
                         </CardBody>
                     </Card>
                 </div>

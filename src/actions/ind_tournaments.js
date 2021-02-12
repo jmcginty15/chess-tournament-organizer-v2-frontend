@@ -37,7 +37,7 @@ export const createTournament = (tournament) => {
     }
 }
 
-const gotTournament = (tournament) => {
+export const gotTournament = (tournament) => {
     return {
         type: LOAD_TOURNAMENT,
         payload: {
@@ -46,7 +46,7 @@ const gotTournament = (tournament) => {
     };
 }
 
-const enteredTournament = (entry) => {
+export const enteredTournament = (entry) => {
     return {
         type: ENTER_TOURNAMENT,
         payload: {
@@ -55,7 +55,7 @@ const enteredTournament = (entry) => {
     };
 }
 
-const createdTournament = (tournament) => {
+export const createdTournament = (tournament) => {
     return {
         type: CREATE_TOURNAMENT,
         payload: {

@@ -18,6 +18,7 @@ import TeamSubForm from './TeamSubForm';
 import axios from 'axios';
 import { processFormData } from './helpers/forms';
 import { createTournament } from './actions/ind_tournaments';
+import { createTeamTournament } from './actions/team_tournaments';
 import './TournamentForm.css';
 
 const openDate = moment();
@@ -110,7 +111,11 @@ const TournamentForm = () => {
         if (!data.timeControl) setMissingTimeControl(true);
         else {
             setMissingTimeControl(false);
-            dispatch(createTournament(data));
+            if (type === 'ind') {
+                dispatch(createTournament(data));
+            } else if (type === 'team') {
+                dispatch(createTeamTournament(data));
+            }
         }
     }
 

@@ -1,37 +1,37 @@
-.IndTournament-body {
+.TeamTournament-body {
     padding: 50px;
     display: grid;
     grid-template-columns: 35% 65%;
     column-gap: 25px;
 }
 
-.IndTournament-tab {
+.TeamTournament-tab {
     font-weight: normal;
     color: black !important;
     border-style: solid !important;
     border-color: #dddddd !important;
 }
 
-.IndTournament-tab.active {
+.TeamTournament-tab.active {
     font-weight: 600 !important;
     background-color: #eeeeee !important;
 }
 
-.IndTournament-tab:hover {
+.TeamTournament-tab:hover {
     cursor: pointer;
     border-color: grey !important;
 }
 
-.IndTournament-nav {
-    width: 100% !important;
+.TeamTournament-nav {
     height: fit-content !important;
+    width: 100% !important;
 }
 
-.IndTournament-nav-content {
-    width: 90% !important;
+.TeamTournament-nav-content {
+    width: 100% !important;
 }
 
-.IndTournament-round-indicator {
+.TeamTournament-round-indicator {
     color: grey;
     font-style: italic;
     text-align: left;

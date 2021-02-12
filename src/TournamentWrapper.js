@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import IndTournament from './IndTournament';
+import TeamTournament from './TeamTournament';
 import './TournamentWrapper.css';
 
 const TournamentWrapper = () => {
@@ -9,7 +10,7 @@ const TournamentWrapper = () => {
 
     return (
         <div className="TournamentWrapper">
-            {type === 'I' ? <IndTournament id={id} /> : null}
+            {type === 'I' ? <IndTournament id={id} /> : <TeamTournament id={id} />}
         </div>
     )
 }

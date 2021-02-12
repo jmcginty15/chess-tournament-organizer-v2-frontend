@@ -14,11 +14,14 @@ const TournamentCard = ({ tournament, type }) => {
                 <CardBody>
                     <h4>{tournament.name}</h4>
                     <h6 className="TournamentCard-subtitle">
-                        {tournament.timeControl} - {capitalize(tournament.category)}
+                        {tournament.timeControl}
+                        {' | '}
+                        {capitalize(tournament.category)}
                         {' | '}
                         {tournament.rounds} rounds
                         {' | '}
                         {tournament.roundLength} day{tournament.roundLength === 1 ? '' : 's'} per round
+                        {type === 'T' ? ` | ${tournament.teamSize} players per team` : null}
                     </h6>
                     <div className="TournamentCard-body">
                         <div>
