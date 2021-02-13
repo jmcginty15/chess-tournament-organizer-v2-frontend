@@ -1,0 +1,49 @@
+.Scheduler-button {
+    margin-top: 5px;
+}
+
+.Scheduler-input {
+    float: right;
+    width: 225px;
+}
+
+.Scheduler-cancel, .Scheduler-report {
+    margin-left: 5px;
+}
+
+.Scheduler-note {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 3px;
+    color: grey;
+    font-size: small;
+    font-style: italic;
+    text-align: left;
+}
+
+.Scheduler-notice {
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.Scheduler-alert {
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    color: red;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.Scheduler-check {
+    width: 100%;
+    text-align: left;
+    font-size:  small;
+    color: green;
+    margin-top: 0;
+    margin-bottom: 3px;
+}

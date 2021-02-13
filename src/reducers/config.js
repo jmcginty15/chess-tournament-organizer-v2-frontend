@@ -3,7 +3,7 @@ const INITIAL_STATE = {
         name: 'Chess Anytime',
         tagline: 'Chess tournaments for busy people'
     },
-    apiRequestUrl: 'https://lichess.org/api'
+    apiRequestUrl: 'https://lichess.org'
 }
 
 const config = (state = INITIAL_STATE, action) => {

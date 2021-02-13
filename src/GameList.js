@@ -7,7 +7,7 @@ const GameList = ({ games, type }) => {
         <div className="GameList">
             <Card>
                 <CardBody>
-                    {games.map(game => <GameCard game={game} type={type} />)}
+                    {games.map(game => <GameCard key={game.id} game={game} type={type} />)}
                 </CardBody>
             </Card>
         </div>

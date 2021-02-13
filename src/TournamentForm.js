@@ -8,14 +8,11 @@ import {
     Input,
     Button
 } from 'reactstrap';
-import ValidityCheck from './ValidityCheck';
 import { useState } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from './actions/users';
 import IndSubForm from './IndSubForm';
 import TeamSubForm from './TeamSubForm';
-import axios from 'axios';
 import { processFormData } from './helpers/forms';
 import { createTournament } from './actions/ind_tournaments';
 import { createTeamTournament } from './actions/team_tournaments';

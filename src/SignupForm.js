@@ -66,7 +66,7 @@ const SignupForm = () => {
 
     const checkUsername = async (username) => {
         try {
-            await axios.get(`${BASE_URL}/user/${username}`);
+            await axios.get(`${BASE_URL}/api/user/${username}`);
             return true;
         } catch {
             return false;

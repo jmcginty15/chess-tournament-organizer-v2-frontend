@@ -1,3 +1,46 @@
 .GameCard {
     text-align: left;
 }
+
+.GameCard-body {
+    display: grid;
+    grid-template-columns: 5% 55% 5% 35%;
+}
+
+.GameCard-rating {
+    color: grey;
+}
+
+.GameCard-color {
+    border: solid black;
+    border-width: thin;
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.GameCard-white {
+    background-color: white;
+}
+
+.GameCard-black {
+    background-color: black;
+}
+
+.GameCard-top {
+    margin-bottom: 20px;
+}
+
+.GameCard-button-container {
+    width: 100%;
+    text-align: right;
+}
+
+.GameCard-button {
+    float: right;
+}
+
+.GameCard-link {
+    color: black;
+}
