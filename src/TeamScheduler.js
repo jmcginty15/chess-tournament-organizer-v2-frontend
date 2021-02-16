@@ -4,16 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { parseDate } from './helpers/dates';
 import { parseUrl } from './helpers/strings';
 import { checkCorrectGame } from './helpers/games';
-import { scheduleGame, reportGame } from './actions/ind_games';
+import { scheduleTeamGame, reportTeamGame } from './actions/team_games';
 import GameValidityCheck from './GameValidityCheck';
 import moment from 'moment';
 import axios from 'axios';
-import './Scheduler.css';
+import './TeamScheduler.css';
 
 const currentDate = moment();
 let timeout = null;
 
-const Scheduler = ({ game, type, white, black }) => {
+const TeamScheduler = ({ game, type, white, black }) => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const tournament = useSelector(state => state.tournaments.tournament);
@@ -32,7 +32,7 @@ const Scheduler = ({ game, type, white, black }) => {
         setInputShown(false);
         let formattedSchedule = moment(schedule);
         formattedSchedule = formattedSchedule.utc().format();
-        dispatch(scheduleGame(game.id, formattedSchedule, loggedInUser._token));
+        dispatch(scheduleTeamGame(game.id, formattedSchedule, loggedInUser._token));
     }
 
     const handleCancel = () => {
@@ -69,35 +69,35 @@ const Scheduler = ({ game, type, white, black }) => {
         if (validUrl !== 1) setValidUrl(-4);
         else {
             setShowValidity(false);
-            if (type === 'I') dispatch(reportGame(game.id, parseUrl(gameUrl), loggedInUser._token));
+            if (type === 'T') dispatch(reportTeamGame(game.id, parseUrl(gameUrl), loggedInUser._token));
         }
     }
 
     return (
-        <div className="Scheduler">
+        <div className="TeamScheduler">
             {game.schedule ? (
                 <div>
                     {inputShown ? (
                         <div>
-                            <Input className="Scheduler-input" value={schedule} type="datetime-local" onChange={handleChange} />
-                            <Button className="Scheduler-button" type="button" color="secondary" outline onClick={handleClick}>Confirm</Button>
-                            <Button className="Scheduler-button Scheduler-cancel" type="button" color="danger" outline onClick={handleCancel}>Cancel</Button>
+                            <Input className="TeamScheduler-input" value={schedule} type="datetime-local" onChange={handleChange} />
+                            <Button className="TeamScheduler-button" type="button" color="secondary" outline onClick={handleClick}>Confirm</Button>
+                            <Button className="TeamScheduler-button TeamScheduler-cancel" type="button" color="danger" outline onClick={handleCancel}>Cancel</Button>
                         </div>
                     ) : (
                             <div>
                                 {reportFieldShown ? (
                                     <div>
-                                        <p className="Scheduler-note">Copy and paste the game URL below</p>
+                                        <p className="TeamScheduler-note">Copy and paste the game URL below</p>
                                         {showValidity ? <GameValidityCheck validity={validUrl} /> : null}
-                                        <Input type="text" placeholder="Game URL" value={gameUrl} onChange={checkValidity} />
-                                        <Button className="Scheduler-button Scheduler-report" type="button" color="success" outline onClick={handleSubmit}>Submit</Button>
-                                        <Button className="Scheduler-button Scheduler-cancel" type="button" color="danger" outline onClick={handleCancel}>Cancel</Button>
+                                        <Input className="TeamScheduler-input" type="text" placeholder="Game URL" value={gameUrl} onChange={checkValidity} />
+                                        <Button className="TeamScheduler-button TeamScheduler-report" type="button" color="success" outline onClick={handleSubmit}>Submit</Button>
+                                        <Button className="TeamScheduler-button TeamScheduler-cancel" type="button" color="danger" outline onClick={handleCancel}>Cancel</Button>
                                     </div>
                                 ) : (
                                         <div>
                                             <h5>{parseDate(new Date(game.schedule))}</h5>
-                                            <Button className="Scheduler-button" type="button" color="secondary" outline onClick={showScheduleInput}>Reschedule</Button>
-                                            <Button className="Scheduler-button Scheduler-report" type="button" color="success" outline onClick={showReportField}>Report result</Button>
+                                            <Button className="TeamScheduler-button" type="button" color="secondary" outline onClick={showScheduleInput}>Reschedule</Button>
+                                            <Button className="TeamScheduler-button TeamScheduler-report" type="button" color="success" outline onClick={showReportField}>Report result</Button>
                                         </div>
                                     )}
                             </div>
@@ -105,13 +105,13 @@ const Scheduler = ({ game, type, white, black }) => {
                 </div>
             ) : (
                     <div>
-                        <Input className="Scheduler-input" value={schedule} type="datetime-local" onChange={handleChange} />
-                        <Button className="Scheduler-button" type="button" color="secondary" outline onClick={handleClick}>Schedule game</Button>
+                        <Input className="TeamScheduler-input" value={schedule} type="datetime-local" onChange={handleChange} />
+                        <Button className="TeamScheduler-button" type="button" color="secondary" outline onClick={handleClick}>Schedule game</Button>
                     </div>
                 )
             }
-        </div >
+        </div>
     )
 }
 
-export default Scheduler;
+export default TeamScheduler;

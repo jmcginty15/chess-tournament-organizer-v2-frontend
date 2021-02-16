@@ -1,0 +1,52 @@
+.TeamScheduler {
+    text-align: left;
+}
+
+.TeamScheduler-button {
+    margin-top: 5px;
+}
+
+.TeamScheduler-input {
+    width: 300px !important;
+}
+
+.TeamScheduler-cancel, .TeamScheduler-report {
+    margin-left: 5px;
+}
+
+.TeamScheduler-note {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 3px;
+    color: grey;
+    font-size: small;
+    font-style: italic;
+    text-align: left;
+}
+
+.TeamScheduler-notice {
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.TeamScheduler-alert {
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    color: red;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.TeamScheduler-check {
+    width: 100%;
+    text-align: left;
+    font-size:  small;
+    color: green;
+    margin-top: 0;
+    margin-bottom: 3px;
+}

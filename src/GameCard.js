@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { BASE_URL } from './actions/config';
 import axios from 'axios';
 import { parseResult } from './helpers/games';
+import { parseDate } from './helpers/dates';
 import Scheduler from './Scheduler';
 import './GameCard.css';
 
 const GameCard = ({ game, type }) => {
-    console.log(game);
     const endpoint = type === 'I' ? 'ind' : 'team';
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const [white, setWhite] = useState(null);
@@ -45,7 +45,9 @@ const GameCard = ({ game, type }) => {
                         </div>
                     ) : (
                             <div className="GameCard-button-container">
-                                {(white && black) && (loggedInUser.username === white.player || loggedInUser.username === black.player) ? <Scheduler game={game} type={type} white={white.player} black={black.player} /> : null}
+                                {(white && black) && (loggedInUser.username === white.player || loggedInUser.username === black.player) ? <Scheduler game={game} type={type} white={white.player} black={black.player} /> : (
+                                    <div>{game.schedule ? <h5>{parseDate(new Date(game.schedule))}</h5> : null}</div>
+                                )}
                             </div>
                         )}
                 </CardBody>

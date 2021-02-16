@@ -1,11 +1,11 @@
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { sortGames } from './helpers/games';
-import GameList from './GameList';
-import './RoundSelect.css';
+import { sortMatches } from './helpers/matches';
+import MatchList from './MatchList';
+import './TeamRoundSelect.css';
 
-const RoundSelect = ({ type, currentRound }) => {
+const TeamRoundSelect = ({ type, currentRound }) => {
     const tournament = useSelector(state => state.tournaments.tournament);
     const [rounds, setRounds] = useState(null);
     const [activeTab, setActiveTab] = useState(`${currentRound}`);
@@ -15,21 +15,21 @@ const RoundSelect = ({ type, currentRound }) => {
     }
 
     useEffect(() => {
-        if (tournament) setRounds(sortGames(tournament.games));
+        if (tournament) setRounds(sortMatches(tournament.matches));
     }, [tournament]);
 
     return (
-        <div className="RoundSelect">
+        <div className="TeamRoundSelect">
             {rounds ? (
-                <Nav tabs className="RoundSelect-nav">
+                <Nav tabs className="TeamRoundSelect-nav">
                     {Object.keys(rounds).map(round => (
-                        <NavItem>
-                            <NavLink className="RoundSelect-tab" active={activeTab === `${round}`} onClick={() => toggleTabs(`${round}`)}>Round {round}</NavLink>
+                        <NavItem key={round}>
+                            <NavLink className="TeamRoundSelect-tab" active={activeTab === `${round}`} onClick={() => toggleTabs(`${round}`)}>Round {round}</NavLink>
                         </NavItem>
                     ))}
-                    <TabContent activeTab={activeTab} className="RoundSelect-nav-content">
+                    <TabContent activeTab={activeTab} className="TeamRoundSelect-nav-content">
                         {Object.keys(rounds).map(round => (
-                            <TabPane key={round} tabId={`${round}`}><GameList games={rounds[round]} type={type} /></TabPane>
+                            <TabPane key={round} tabId={`${round}`}><MatchList matches={rounds[round]} type={type} /></TabPane>
                         ))}
                     </TabContent>
                 </Nav>
@@ -38,4 +38,4 @@ const RoundSelect = ({ type, currentRound }) => {
     )
 }
 
-export default RoundSelect;
+export default TeamRoundSelect;

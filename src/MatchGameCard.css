@@ -1,0 +1,38 @@
+.MatchGameCard-body {
+    display: grid;
+    grid-template-columns: 49% 49% 2%;
+}
+
+.MatchGameCard-player-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.MatchGameCard-rating {
+    color: grey;
+}
+
+.MatchGameCard-color {
+    border: solid black;
+    border-width: thin;
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.MatchGameCard-white {
+    background-color: white;
+}
+
+.MatchGameCard-black {
+    background-color: black;
+}
+
+.MatchGameCard-link {
+    color: black;
+}
+
+.MatchGameCard-schedule, .MatchGameCard-button-container {
+    padding-top: 0 !important;
+}

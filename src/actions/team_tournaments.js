@@ -37,3 +37,15 @@ export const createTeamTournament = (tournament) => {
         }
     }
 }
+
+export const startTeamTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            const res = await axios.post(`${BASE_URL}/tournaments/team/${id}/initialize`, { _token: token });
+            const tournament = res.data.tournament;
+            dispatch(gotTournament(tournament));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}

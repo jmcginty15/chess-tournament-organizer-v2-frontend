@@ -12,7 +12,7 @@ const TeamCard = ({ team }) => {
                 <CardBody className="TeamCard-body">
                     <div className="TeamCard-grid">
                         <div><h4 className="TeamCard-rating">{team.place}</h4></div>
-                        <h4 className="TeamCard-text">{team.name} | <span className="TeamCard-rating">{team.rating}</span>
+                        <h4 className="TeamCard-text">{team.name} | <span className="TeamCard-rating">{team.rating.toFixed(0)}</span>
                             <span className="TeamCard-score-container">
                                 {team.score}
                             </span>

@@ -1,0 +1,9 @@
+.NameChangeField-form {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.NameChangeField-button {
+    display: inline-block;
+    margin-left: 10px;
+}

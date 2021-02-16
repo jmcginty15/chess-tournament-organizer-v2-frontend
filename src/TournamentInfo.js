@@ -14,6 +14,7 @@ const TournamentInfo = ({ tournament }) => {
     const [alreadyEntered, setAlreadyEntered] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
+    const followLink = (route) => history.push(route);
 
     useEffect(() => {
         if (loggedInUser) {
@@ -55,7 +56,7 @@ const TournamentInfo = ({ tournament }) => {
                         Start date:
                     </div>
                     <div className="TournamentInfo-right">
-                        {tournament.director}<br />
+                        <a className="TournamentInfo-link" href="" onClick={() => followLink(`/users/${tournament.director}`)}>{tournament.director}</a><br />
                         {tournament.timeControl} - {capitalize(tournament.category)}<br />
                         {tournament.minPlayers}<br />
                         {tournament.maxPlayers}<br />

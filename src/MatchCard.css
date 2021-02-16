@@ -1,0 +1,60 @@
+.MatchCard {
+    text-align: left;
+}
+
+.MatchCard-header {
+    display: grid;
+    grid-template-columns: 48% 48% 4%;
+    column-gap: 10px;
+}
+
+.MatchCard-body {
+    padding: 0 !important;
+}
+
+.MatchCard-team-container {
+    display: grid;
+    grid-template-columns: 5% 75% 20%;
+}
+
+.MatchCard-rating {
+    color: grey;
+}
+
+.MatchCard-toggle:hover {
+    cursor: pointer;
+}
+
+.MatchCard-color {
+    border: solid black;
+    border-width: thin;
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.MatchCard-white {
+    background-color: white;
+}
+
+.MatchCard-black {
+    background-color: black;
+}
+
+.MatchCard-top {
+    margin-bottom: 20px;
+}
+
+.MatchCard-button-container {
+    width: 100%;
+    text-align: right;
+}
+
+.MatchCard-button {
+    float: right;
+}
+
+.MatchCard-link {
+    color: black;
+}

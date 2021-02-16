@@ -1,0 +1,11 @@
+.TeamInfo {
+    margin-top: 85px;
+    margin-bottom: 75px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.TeamInfo-rating {
+    color: grey;
+}

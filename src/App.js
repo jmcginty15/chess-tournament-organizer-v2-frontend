@@ -6,6 +6,7 @@ import Profile from './Profile';
 import TournamentWrapper from './TournamentWrapper';
 import TournamentsPage from './TournamentsPage';
 import TournamentForm from './TournamentForm';
+import TeamInfo from './TeamInfo';
 import './App.css';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/tournaments/:idStr">
             <TournamentWrapper />
+          </Route>
+          <Route exact path="/teams/:id">
+            <TeamInfo />
           </Route>
         </Switch>
       </BrowserRouter>

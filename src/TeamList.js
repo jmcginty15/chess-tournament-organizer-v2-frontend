@@ -3,7 +3,6 @@ import TeamCard from './TeamCard';
 import './TeamList.css';
 
 const TeamList = ({ teams }) => {
-    console.log(teams);
     return (
         <div className="TeamList">
             <CardBody>

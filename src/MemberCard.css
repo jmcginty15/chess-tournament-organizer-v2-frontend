@@ -1,0 +1,16 @@
+.MemberCard {
+    text-align: left;
+}
+
+.MemberCard-body {
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+
+.MemberCard-rating {
+    color: grey;
+}
+
+.MemberCard-link {
+    color: black;
+}

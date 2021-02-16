@@ -1,0 +1,25 @@
+.TeamRoundSelect-tab {
+    font-weight: normal;
+    color: black !important;
+    border-style: solid !important;
+    border-color: #dddddd !important;
+}
+
+.TeamRoundSelect-tab.active {
+    font-weight: 600 !important;
+    background-color: #eeeeee !important;
+}
+
+.TeamRoundSelect-tab:hover {
+    cursor: pointer;
+    border-color: grey !important;
+}
+
+.TeamRoundSelect-nav {
+    width: 100% !important;
+    height: fit-content !important;
+}
+
+.TeamRoundSelect-nav-content {
+    width: 100% !important;
+}
