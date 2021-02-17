@@ -15,6 +15,11 @@
     margin-right: 5px;
     float: right;
     width: fit-content;
+    background-color: white !important;
+}
+
+.StandingsCard-button:hover {
+    background-color: #696969 !important;
 }
 
 .StandingsCard-score-container {
@@ -24,4 +29,20 @@
 .StandingsCard-grid {
     display: grid;
     grid-template-columns: 5% 70% 25%;
+}
+
+.StandingsCard-gold {
+    background-color: gold !important;
+}
+
+.StandingsCard-silver {
+    background-color: silver !important;
+}
+
+.StandingsCard-bronze {
+    background-color: #cd7f32 !important;
+}
+
+.StandingsCard-link {
+    color: black;
 }

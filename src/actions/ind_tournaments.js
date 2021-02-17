@@ -40,9 +40,30 @@ export const createTournament = (tournament) => {
 export const startTournament = (id, token) => {
     return async function (dispatch) {
         try {
-            const res = await axios.post(`${BASE_URL}/tournaments/ind/${id}/initialize`, { _token: token });
-            const tournament = res.data.tournament;
-            dispatch(gotTournament(tournament));
+            await axios.post(`${BASE_URL}/tournaments/ind/${id}/initialize`, { _token: token });
+            dispatch(loadTournament(id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export const endRound = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.post(`${BASE_URL}/tournaments/ind/${id}/end_round`, { _token: token });
+            dispatch(loadTournament(id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export const endTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.post(`${BASE_URL}/tournaments/ind/${id}/end_tournament`, { _token: token });
+            dispatch(loadTournament(id));
         } catch (err) {
             console.log(err);
         }

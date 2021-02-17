@@ -41,13 +41,21 @@ const GameCard = ({ game, type }) => {
                     </div>
                     {result ? (
                         <div>
-                            <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                            {result.white !== 0 || result.black !== 0 ? (
+                                <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                            ) : (
+                                    <div className="GameCard-double-forfeit"><h5>Double forfeit</h5><h5>No game</h5></div>
+                                )}
                         </div>
                     ) : (
                             <div className="GameCard-button-container">
-                                {(white && black) && (loggedInUser.username === white.player || loggedInUser.username === black.player) ? <Scheduler game={game} type={type} white={white.player} black={black.player} /> : (
-                                    <div>{game.schedule ? <h5>{parseDate(new Date(game.schedule))}</h5> : null}</div>
-                                )}
+                                {loggedInUser ? (
+                                    <div>
+                                        {(white && black) && (loggedInUser.username === white.player || loggedInUser.username === black.player) ? <Scheduler game={game} type={type} white={white.player} black={black.player} /> : (
+                                            <div>{game.schedule ? <h5>{parseDate(new Date(game.schedule))}</h5> : null}</div>
+                                        )}
+                                    </div>
+                                ) : <div>{game.schedule ? <h5>{parseDate(new Date(game.schedule))}</h5> : null}</div>}
                             </div>
                         )}
                 </CardBody>

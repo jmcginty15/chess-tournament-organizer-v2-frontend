@@ -13,6 +13,7 @@ const IndTournament = ({ id }) => {
     const [activeTab, setActiveTab] = useState('1');
     const tournament = useSelector(state => state.tournaments.tournament);
     const loggedInUser = useSelector(state => state.users.loggedInUser);
+    const [isTD, setIsTD] = useState(!!loggedInUser && loggedInUser.username === tournament.director);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,7 +37,7 @@ const IndTournament = ({ id }) => {
                             </NavItem>
                             {tournament.currentRound > 0 ? (
                                 <NavItem>
-                                    <NavLink className="IndTournament-tab" active={activeTab === '2'} onClick={() => toggleTabs('2')}>Standings</NavLink>
+                                    <NavLink className="IndTournament-tab" active={activeTab === '2'} onClick={() => toggleTabs('2')}>{tournament.ended ? 'Results' : 'Standings'}</NavLink>
                                 </NavItem>
                             ) : null}
                             {tournament.currentRound > 0 ? (
@@ -44,27 +45,30 @@ const IndTournament = ({ id }) => {
                                     <NavLink className="IndTournament-tab" active={activeTab === '3'} onClick={() => toggleTabs('3')}>Rounds</NavLink>
                                 </NavItem>
                             ) : null}
-                            {tournament.director === loggedInUser.username ? (
-                                <NavItem>
-                                    <NavLink className="IndTournament-tab" active={activeTab === '4'} onClick={() => toggleTabs('4')}>Director tools</NavLink>
-                                </NavItem>
-                            ) : null}
+                            {loggedInUser ? (
+                                <div>
+                                    {tournament.director === loggedInUser.username ? (
+                                        <NavItem>
+                                            <NavLink className="IndTournament-tab" active={activeTab === '4'} onClick={() => toggleTabs('4')}>Director tools</NavLink>
+                                        </NavItem>
+                                    ) : null}
+                                </div>) : null}
                             <TabContent activeTab={activeTab} className="IndTournament-nav-content">
                                 <TabPane tabId="1"><EntryList entries={tournament.entries} /></TabPane>
                                 {tournament.currentRound > 0 ? (
                                     <TabPane tabId="2">
                                         <Card>
                                             <CardBody className="IndTournament-round-indicator">
-                                                <h6>Standings after {tournament.currentRound - 1} round{tournament.currentRound - 1 === 1 ? '' : 's'}</h6>
+                                                {tournament.ended ? <h6>Final standings</h6> : <h6>Standings after {tournament.currentRound - 1} round{tournament.currentRound - 1 === 1 ? '' : 's'}</h6>}
                                             </CardBody>
-                                            <StandingsList entries={tournament.entries} />
+                                            <StandingsList entries={tournament.entries} ended={!!tournament.ended} />
                                         </Card>
                                     </TabPane>
                                 ) : null}
                                 {tournament.currentRound > 0 ? (
                                     <TabPane tabId="3"><Card><RoundSelect type="I" currentRound={tournament.currentRound} /></Card></TabPane>
                                 ) : null}
-                                {tournament.director === loggedInUser.username ? (
+                                {isTD ? (
                                     <TabPane tabId="4"><DirectorTools type="I" /></TabPane>
                                 ) : null}
                             </TabContent>

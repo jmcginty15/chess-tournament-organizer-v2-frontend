@@ -219,6 +219,24 @@ const TeamSubForm = ({ formData, tc, sendChange }) => {
                     <Label>Days per round:</Label>{' '}
                     <Input className="TournamentForm-number-input" type="number" name="roundLength" value={formData.roundLength} autoComplete="off" min={1} max={14} required onChange={handleChange} />
                 </FormGroup>
+                <p className="TournamentForm-rounds-note">
+                    Note: The optimal number of rounds for a Swiss system tournament is the binary logarithm of the
+                    number of teams rounded up. For example, for 5-8 teams the optimal number of rounds is 3, for 9-16
+                    teams 4 rounds are optimal, for 17-32 teams 5 rounds are optimal, for 33-64 teams 6 rounds are
+                    optimal, and so on.
+                </p>
+                <p className="TournamentForm-rounds-note">
+                    Additionally, the maximum number of rounds to guarantee valid sets of pairings throughout the
+                    tournament is half the number of teams rounded up. For example, for 5-6 teams the maximum number of
+                    rounds is 3, for 7-8 teams the maximum is 4 rounds, for 9-10 teams the maximum is 5 rounds, and so
+                    on.
+                </p>
+                <p className="TournamentForm-rounds-note">
+                    Fewer rounds than the optimal number are possible, but may not guarantee a clear winner. More
+                    rounds than the maximum are also possible, but as the number of rounds approaches the number of
+                    teams, it may not be possible to produce a valid set of pairings for the later rounds. If this
+                    happens, you will be notified and the tournament will be ended early.
+                </p>
             </div>
             <div className="TournamentForm-date-container">
                 <FormGroup className="TournamentForm-date-input">

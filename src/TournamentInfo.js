@@ -6,6 +6,7 @@ import { enterTournament } from './actions/ind_tournaments';
 import { enterTeamTournament } from './actions/team_tournaments';
 import { parseDate } from './helpers/dates';
 import { capitalize } from './helpers/strings';
+import InfoFooter from './InfoFooter';
 import './TournamentInfo.css';
 
 const TournamentInfo = ({ tournament }) => {
@@ -71,23 +72,7 @@ const TournamentInfo = ({ tournament }) => {
                     </div>
                 </CardBody>
                 <CardFooter>
-                    {tournament.entries.length < tournament.maxPlayers ? (
-                        <div>
-                            {loggedInUser ? (
-                                <div>
-                                    {alreadyEntered ? (
-                                        <h5>You have entered this tournament</h5>
-                                    ) : (
-                                        <Button outline color="secondary" onClick={handleClick}>Enter this tournament</Button>
-                                    )}
-                                </div>
-                            ) : (
-                                    <Button outline color="secondary" onClick={handleClick}>Log in to enter this tournament</Button>
-                                )}
-                        </div>
-                    ) : (
-                            <h5>This tournament is full!</h5>
-                        )}
+                    <InfoFooter started={!!tournament.started} full={tournament.entries.length === tournament.maxPlayers} alreadyEntered={alreadyEntered} handleClick={handleClick} />
                 </CardFooter>
             </Card>
         </div>

@@ -31,3 +31,11 @@ export const checkCorrectGame = (resGame, whitePlayer, blackPlayer, tournTc) => 
     if (timeControl !== tournTc) return -3;
     return 1;
 }
+
+export const countRemainingGames = (games, round) => {
+    let count = 0;
+    for (let game of games) {
+        if (game.round === round && !game.result) count++;
+    }
+    return count;
+}

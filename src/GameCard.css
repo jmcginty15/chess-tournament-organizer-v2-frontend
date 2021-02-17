@@ -44,3 +44,8 @@
 .GameCard-link {
     color: black;
 }
+
+.GameCard-double-forfeit {
+    width: 100%;
+    text-align: right;
+}
