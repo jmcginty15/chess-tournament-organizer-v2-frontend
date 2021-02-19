@@ -36,7 +36,7 @@ const TeamTournament = ({ id }) => {
                             </NavItem>
                             {tournament.currentRound > 0 ? (
                                 <NavItem>
-                                    <NavLink className="TeamTournament-tab" active={activeTab === '2'} onClick={() => toggleTabs('2')}>Standings</NavLink>
+                                    <NavLink className="TeamTournament-tab" active={activeTab === '2'} onClick={() => toggleTabs('2')}>{tournament.ended ? 'Results' : 'Standings'}</NavLink>
                                 </NavItem>
                             ) : null}
                             {tournament.currentRound > 0 ? (
@@ -55,9 +55,9 @@ const TeamTournament = ({ id }) => {
                                     <TabPane tabId="2">
                                         <Card>
                                             <CardBody className="TeamTournament-round-indicator">
-                                                <h6>Standings after {tournament.currentRound - 1} round{tournament.currentRound - 1 === 1 ? '' : 's'}</h6>
+                                                {tournament.ended ? <h6>Final standings</h6> : <h6>Standings after {tournament.currentRound - 1} round{tournament.currentRound - 1 === 1 ? '' : 's'}</h6>}
                                             </CardBody>
-                                            <TeamList teams={tournament.teams} />
+                                            <TeamList teams={tournament.teams} ended={!!tournament.ended} />
                                         </Card>
                                     </TabPane>
                                 ) : null}

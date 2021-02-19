@@ -32,17 +32,23 @@ const MatchCard = ({ match, type }) => {
                         <div className="MatchCard-team-container">
                             <h4 className="MatchCard-rating">{team1.place}</h4>
                             <h4><a className="MatchCard-link" href="" onClick={() => followLink(`/teams/${team1.id}`)}>{team1.name}</a> | <span className="MatchCard-rating">{team1.rating.toFixed(0)}</span></h4>
-                            <div><h4>{res1}</h4></div>
+                            <h4>{res1}</h4>
                         </div>
                     ) : null}
                     {team2 ? (
                         <div className="MatchCard-team-container">
                             <h4 className="MatchCard-rating">{team2.place}</h4>
                             <h4><a className="MatchCard-link" href="" onClick={() => followLink(`/teams/${team2.id}`)}>{team2.name}</a> | <span className="MatchCard-rating">{team2.rating.toFixed(0)}</span></h4>
-                            <div><h4>{res2}</h4></div>
+                            <h4>{res2}</h4>
                         </div>
-                    ) : null}
-                    <div><h4 className="MatchCard-toggle" onClick={toggleGames}><i className={`fa fa-caret-${showGames ? 'up' : 'down'}`} aria-hidden="true"></i></h4></div>
+                    ) : (
+                            <div className="MatchCard-team-container">
+                                <h4></h4>
+                                <h4>Bye</h4>
+                                <h4>0</h4>
+                            </div>
+                        )}
+                    <div>{team2 ? <h4 className="MatchCard-toggle" onClick={toggleGames}><i className={`fa fa-caret-${showGames ? 'up' : 'down'}`} aria-hidden="true"></i></h4> : null}</div>
                 </CardHeader>
                 {team1 && team2 ? (
                     <CardBody className="MatchCard-body" hidden={!showGames}>

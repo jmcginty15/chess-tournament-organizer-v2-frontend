@@ -13,7 +13,6 @@ const IndTournament = ({ id }) => {
     const [activeTab, setActiveTab] = useState('1');
     const tournament = useSelector(state => state.tournaments.tournament);
     const loggedInUser = useSelector(state => state.users.loggedInUser);
-    const [isTD, setIsTD] = useState(!!loggedInUser && loggedInUser.username === tournament.director);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -68,7 +67,7 @@ const IndTournament = ({ id }) => {
                                 {tournament.currentRound > 0 ? (
                                     <TabPane tabId="3"><Card><RoundSelect type="I" currentRound={tournament.currentRound} /></Card></TabPane>
                                 ) : null}
-                                {isTD ? (
+                                {tournament.director === loggedInUser.username ? (
                                     <TabPane tabId="4"><DirectorTools type="I" /></TabPane>
                                 ) : null}
                             </TabContent>

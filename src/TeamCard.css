@@ -25,3 +25,27 @@
     display: grid;
     grid-template-columns: 5% 70% 25%;
 }
+
+.TeamCard-gold {
+    background-color: gold !important;
+}
+
+.TeamCard-silver {
+    background-color: silver !important;
+}
+
+.TeamCard-bronze {
+    background-color: #cd7f32 !important;
+}
+
+.TeamCard-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    float: right;
+    width: fit-content;
+    background-color: white !important;
+}
+
+.TeamCard-button:hover {
+    background-color: #696969 !important;
+}

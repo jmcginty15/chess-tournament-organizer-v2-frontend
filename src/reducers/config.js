@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     app: {
-        name: 'FlexxChess',
+        name: 'FlexChess',
         tagline: 'Chess tournaments for busy people'
     },
     apiRequestUrl: 'https://lichess.org'

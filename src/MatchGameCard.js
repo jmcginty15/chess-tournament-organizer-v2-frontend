@@ -45,7 +45,13 @@ const MatchGameCard = ({ game, team1, team2, type }) => {
                 </CardBody>
                 {result ? (
                     <CardBody className="MatchGameCard-button-container">
-                        <Button color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                        <div>
+                            {result.player1 !== 0 || result.player2 !== 0 ? (
+                                <Button color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                            ) : (
+                                    <div className="MatchGameCard-double-forfeit"><h5>Double forfeit</h5><h5>No game</h5></div>
+                                )}
+                        </div>
                     </CardBody>
                 ) : (
                         <div>

@@ -1,3 +1,16 @@
 .Profile {
     margin-top: 75px;
+    margin-bottom: 50px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Profile-card {
+    margin-top: 25px;
+}
+
+.Profile-body {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

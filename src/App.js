@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import About from './About';
 import Profile from './Profile';
+import EditProfile from './EditProfile';
 import TournamentWrapper from './TournamentWrapper';
 import TournamentsPage from './TournamentsPage';
 import TournamentForm from './TournamentForm';
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/users/:username">
             <Profile />
+          </Route>
+          <Route exact path="/users/:username/edit">
+            <EditProfile />
           </Route>
           <Route exact path="/tournaments">
             <TournamentsPage />

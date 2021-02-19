@@ -11,6 +11,7 @@ import {
 import { useState } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import IndSubForm from './IndSubForm';
 import TeamSubForm from './TeamSubForm';
 import { processFormData } from './helpers/forms';
@@ -23,6 +24,7 @@ const closeDate = moment();
 closeDate.add(7, 'd');
 
 const TournamentForm = () => {
+    const history = useHistory();
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const dispatch = useDispatch();
     const [missingTimeControl, setMissingTimeControl] = useState(false);
@@ -113,6 +115,7 @@ const TournamentForm = () => {
             } else if (type === 'team') {
                 dispatch(createTeamTournament(data));
             }
+            history.push('/tournaments');
         }
     }
 

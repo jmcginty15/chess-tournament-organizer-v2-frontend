@@ -34,5 +34,5 @@ export const parseTeamResult = (game, player1, player2) => {
     const [whiteScore, blackScore] = game.result.split('-');
     const player1Score = player1.id === game.white ? whiteScore : blackScore;
     const player2Score = player2.id === game.white ? whiteScore : blackScore;
-    return { player1: player1Score, player2: player2Score };
+    return { player1: +player1Score, player2: +player2Score };
 }

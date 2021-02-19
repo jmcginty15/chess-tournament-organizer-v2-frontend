@@ -90,12 +90,7 @@ const SignupForm = () => {
                             <Input type="text" name="lastName" placeholder="Last name" autoComplete="off" value={formData.lastName} onChange={handleChange} />
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor="email">
-                                Email
-                                <p className="SignupForm-notice"><em>Email will not be visible on the site except to
-                                your teammates if you join a team tournament, and to tournament entrants if you
-                                    become a Tournament Director</em></p>
-                            </Label>
+                            <Label htmlFor="email">Email</Label>
                             <Input type="email" name="email" placeholder="Email" autoComplete="off" required value={formData.email} onChange={handleChange} />
                         </FormGroup>
                         <FormGroup>

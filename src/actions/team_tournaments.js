@@ -48,3 +48,25 @@ export const startTeamTournament = (id, token) => {
         }
     }
 }
+
+export const endTeamRound = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.post(`${BASE_URL}/tournaments/team/${id}/end_round`, { _token: token });
+            dispatch(loadTeamTournament(id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export const endTeamTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.post(`${BASE_URL}/tournaments/team/${id}/end_tournament`, { _token: token });
+            dispatch(loadTeamTournament(id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}

@@ -2,13 +2,20 @@ import { Card, CardBody, Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import './TeamCard.css';
 
-const TeamCard = ({ team }) => {
+const TeamCard = ({ team, ended }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);
 
+    let color = null;
+    if (ended) {
+        if (team.place === 1) color = 'gold';
+        if (team.place === 2) color = 'silver';
+        if (team.place === 3) color = 'bronze';
+    }
+
     return (
         <div className="TeamCard">
-            <Card>
+            <Card className={color ? `TeamCard-${color}` : ''}>
                 <CardBody className="TeamCard-body">
                     <div className="TeamCard-grid">
                         <div><h4 className="TeamCard-rating">{team.place}</h4></div>

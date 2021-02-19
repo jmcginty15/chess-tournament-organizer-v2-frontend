@@ -52,6 +52,13 @@ const About = () => {
                     any changes in players' Elo ratings are taken into account and board order within each team is
                     adjusted if necessary.
                 </p>
+                <p>
+                    {app.name} was built by Jason McGinty.<br />
+                    <a href="https://www.linkedin.com/in/jasonmcginty15/" target="_blank">Jason's LinkedIn profile</a><br />
+                    <a href="https://github.com/jmcginty15" target="_blank">Jason's GitHub page</a><br />
+                    <a href="https://github.com/jmcginty15/chess-tournament-organizer-v2-frontend" target="_blank">{app.name} frontend repo</a><br />
+                    <a href="https://github.com/jmcginty15/chess-tournament-organizer-v2-backend" target="_blank">{app.name} backend repo</a><br />
+                </p>
             </div>
         </div>
     )

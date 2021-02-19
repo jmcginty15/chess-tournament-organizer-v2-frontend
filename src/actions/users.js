@@ -15,6 +15,19 @@ export const register = (user) => {
     }
 }
 
+export const updateUser = (username, userInfo, token) => {
+    return async function (dispatch) {
+        try {
+            const res = await axios.patch(`${BASE_URL}/users/${username}/update`, { ...userInfo, _token: token });
+            const updatedUser = res.data.user;
+            dispatch(loggedIn(updatedUser, token));
+        } catch (err) {
+            const errMessage = err.response.data.message;
+            dispatch(error(errMessage));
+        }
+    }
+}
+
 export const login = (username, password) => {
     return async function (dispatch) {
         try {

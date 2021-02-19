@@ -32,8 +32,8 @@ const GameCard = ({ game, type }) => {
                         {black ? <h4 className="GameCard-rating">{black.place}</h4> : null}
                     </div>
                     <div>
-                        {white ? <h4 className="GameCard-top"><span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span></h4> : null}
-                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span></h4> : null}
+                        {white ? <h4 className="GameCard-top">{black ? <span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : null}&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span></h4> : null}
+                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span></h4> : <h4>Bye</h4>}
                     </div>
                     <div>
                         {result ? <h4 className="GameCard-top">{result.white}</h4> : null}
@@ -41,10 +41,10 @@ const GameCard = ({ game, type }) => {
                     </div>
                     {result ? (
                         <div>
-                            {result.white !== 0 || result.black !== 0 ? (
+                            {black && (result.white !== 0 || result.black !== 0) ? (
                                 <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
                             ) : (
-                                    <div className="GameCard-double-forfeit"><h5>Double forfeit</h5><h5>No game</h5></div>
+                                    <div className="GameCard-double-forfeit">{black ? <h5>Double forfeit</h5> : <h5>Bye</h5>}<h5>No game</h5></div>
                                 )}
                         </div>
                     ) : (

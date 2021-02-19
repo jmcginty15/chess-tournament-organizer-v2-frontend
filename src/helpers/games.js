@@ -25,7 +25,7 @@ export const checkCorrectGame = (resGame, whitePlayer, blackPlayer, tournTc) => 
     const seconds = timeControl.slice(0, timeControl.indexOf('+'));
     const minutes = +seconds / 60;
     timeControl = `${minutes}|${timeControl.slice(timeControl.indexOf('+') + 1)}`
-    
+
     if (white === blackPlayer && black === whitePlayer) return -1;
     if (white !== whitePlayer || black !== blackPlayer) return -2;
     if (timeControl !== tournTc) return -3;
@@ -36,6 +36,16 @@ export const countRemainingGames = (games, round) => {
     let count = 0;
     for (let game of games) {
         if (game.round === round && !game.result) count++;
+    }
+    return count;
+}
+
+export const countRemainingTeamGames = (matches, round) => {
+    let count = 0;
+    for (let match of matches) {
+        for (let game of match.games) {
+            if (match.round === round && !game.result) count++;
+        }
     }
     return count;
 }

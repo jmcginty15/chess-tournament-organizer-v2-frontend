@@ -13,8 +13,9 @@ import {
     NavbarText
 } from 'reactstrap';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { logout } from './actions/users';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -24,6 +25,12 @@ const NavBar = () => {
     const [open, setOpen] = useState(false);
     const toggleOpen = () => setOpen(!open);
     const followLink = (route) => history.push(route);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+        history.push('/');
+    }
 
     return (
         <div className="NavBar">
@@ -51,6 +58,11 @@ const NavBar = () => {
                         {loggedInUser ? (
                             <NavItem>
                                 <NavLink className="NavBar-link" onClick={() => followLink(`/users/${loggedInUser.username}`)}><i className="fa fa-user" style={{ fontSize: '20px' }} /> {loggedInUser.username}</NavLink>
+                            </NavItem>
+                        ) : null}
+                        {loggedInUser ? (
+                            <NavItem>
+                                <NavLink className="NavBar-link" onClick={handleLogout}>Logout</NavLink>
                             </NavItem>
                         ) : null}
                     </Nav>

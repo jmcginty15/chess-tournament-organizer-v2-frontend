@@ -1,0 +1,15 @@
+.EditProfile {
+    margin-top: 75px;
+    margin-bottom: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.EditProfile-form {
+    text-align: left;
+}
+
+.EditProfile-cancel {
+    margin-left: 10px;
+}

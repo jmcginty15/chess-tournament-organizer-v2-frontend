@@ -27,3 +27,17 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.Home-button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.Home-ongoing {
+    margin-top: 25px;
+}
+
+.Home-ongoing-body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
