@@ -119,6 +119,8 @@ const TournamentForm = () => {
         }
     }
 
+    const handleCancel = () => history.goBack();
+
     return (
         <div className="TournamentForm">
             <Card>
@@ -146,7 +148,7 @@ const TournamentForm = () => {
                         <hr />
                         {missingTimeControl ? <p className="TournamentForm-alert">Please select a time control</p> : null}
                         <Button type="submit" color="secondary" outline>Create tournament</Button>
-                        <Button className="TournamentForm-cancel-button" type="button" color="danger" outline>Cancel</Button>
+                        <Button className="TournamentForm-cancel-button" type="button" color="danger" outline onClick={handleCancel}>Cancel</Button>
                     </Form>
                 </CardBody>
             </Card>

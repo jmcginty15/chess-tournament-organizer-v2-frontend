@@ -21,7 +21,7 @@ const GameCard = ({ game, type }) => {
             .then(res => setWhite(res.data.entry));
         axios.get(`${BASE_URL}/entries/${endpoint}/${game.black}`)
             .then(res => setBlack(res.data.entry));
-    }, [game]);
+    }, [game, endpoint]);
 
     return (
         <div className="GameCard">
@@ -32,8 +32,8 @@ const GameCard = ({ game, type }) => {
                         {black ? <h4 className="GameCard-rating">{black.place}</h4> : null}
                     </div>
                     <div>
-                        {white ? <h4 className="GameCard-top">{black ? <span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : null}&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span></h4> : null}
-                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span></h4> : <h4>Bye</h4>}
+                        {white ? <h4 className="GameCard-top">{black ? <span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : null}&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank" rel="noreferrer">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span></h4> : null}
+                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank" rel="noreferrer">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span></h4> : <h4>Bye</h4>}
                     </div>
                     <div>
                         {result ? <h4 className="GameCard-top">{result.white}</h4> : null}

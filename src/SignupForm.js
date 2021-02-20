@@ -19,7 +19,6 @@ let timeout = null;
 
 const SignupForm = () => {
     const dispatch = useDispatch();
-    const registerError = useSelector(state => state.registerError);
     const [mismatch, setMismatch] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',

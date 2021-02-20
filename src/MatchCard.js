@@ -1,7 +1,6 @@
-import { Button, Card, CardBody, CardHeader } from 'reactstrap';
+import { Card, CardBody, CardHeader } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { BASE_URL } from './actions/config';
 import axios from 'axios';
 import { parseMatchResult } from './helpers/matches';
@@ -22,7 +21,7 @@ const MatchCard = ({ match, type }) => {
             .then(res => setTeam1(res.data.team));
         axios.get(`${BASE_URL}/teams/${match.team2}`)
             .then(res => setTeam2(res.data.team));
-    }, []);
+    }, [match.team1, match.team2]);
 
     return (
         <div className="MatchCard">
@@ -43,12 +42,12 @@ const MatchCard = ({ match, type }) => {
                         </div>
                     ) : (
                             <div className="MatchCard-team-container">
-                                <h4></h4>
+                                <h4> </h4>
                                 <h4>Bye</h4>
                                 <h4>0</h4>
                             </div>
                         )}
-                    <div>{team2 ? <h4 className="MatchCard-toggle" onClick={toggleGames}><i className={`fa fa-caret-${showGames ? 'up' : 'down'}`} aria-hidden="true"></i></h4> : null}</div>
+                    <div>{team2 ? <h4 className="MatchCard-toggle" onClick={toggleGames}><i className={`fa fa-caret-${showGames ? 'up' : 'down'}`} aria-hidden="true"></i> </h4> : null}</div>
                 </CardHeader>
                 {team1 && team2 ? (
                     <CardBody className="MatchCard-body" hidden={!showGames}>

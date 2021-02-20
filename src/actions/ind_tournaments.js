@@ -1,4 +1,4 @@
-import { BASE_URL, LOAD_TOURNAMENT, ENTER_TOURNAMENT, CREATE_TOURNAMENT } from './config';
+import { BASE_URL, LOAD_TOURNAMENT, ENTER_TOURNAMENT, CREATE_TOURNAMENT, DELETE_TOURNAMENT } from './config';
 import axios from 'axios';
 
 export const loadTournament = (id) => {
@@ -70,6 +70,17 @@ export const endTournament = (id, token) => {
     }
 }
 
+export const deleteTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.delete(`${BASE_URL}/tournaments/ind/${id}`, { data: { _token: token } });
+            dispatch(deletedTournament());
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
 export const gotTournament = (tournament) => {
     return {
         type: LOAD_TOURNAMENT,
@@ -94,5 +105,11 @@ export const createdTournament = (tournament) => {
         payload: {
             tournament: tournament
         }
+    };
+}
+
+export const deletedTournament = () => {
+    return {
+        type: DELETE_TOURNAMENT
     };
 }

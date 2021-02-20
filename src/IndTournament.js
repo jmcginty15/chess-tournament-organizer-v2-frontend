@@ -17,7 +17,7 @@ const IndTournament = ({ id }) => {
 
     useEffect(() => {
         dispatch(loadTournament(id));
-    }, [id]);
+    }, [id, dispatch]);
 
     const toggleTabs = (tab) => {
         if (activeTab !== tab) setActiveTab(tab);

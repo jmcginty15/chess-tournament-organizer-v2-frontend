@@ -1,8 +1,9 @@
 import { Card, CardBody, Button } from 'reactstrap';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { startTournament, endRound, endTournament } from './actions/ind_tournaments';
-import { startTeamTournament, endTeamRound, endTeamTournament } from './actions/team_tournaments';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { startTournament, endRound, endTournament, deleteTournament } from './actions/ind_tournaments';
+import { startTeamTournament, endTeamRound, endTeamTournament, deleteTeamTournament } from './actions/team_tournaments';
 import { countRemainingGames, countRemainingTeamGames } from './helpers/games';
 import './DirectorTools.css';
 
@@ -13,6 +14,7 @@ const DirectorTools = ({ type }) => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const dispatch = useDispatch();
     const [startingTournament, setStartingTournament] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         if (tournament.games || tournament.matches) setStartingTournament(false);
@@ -34,6 +36,12 @@ const DirectorTools = ({ type }) => {
     const handleCancel = (evt) => {
         if (evt.target.id === 'end-round-cancel') setConfirmingRoundEnd(false);
         if (evt.target.id === 'end-tournament-cancel') setConfirmingTournamentEnd(false);
+    }
+
+    const handleDelete = () => {
+        if (type === 'I') dispatch(deleteTournament(tournament.id, loggedInUser._token));
+        if (type === 'T') dispatch(deleteTeamTournament(tournament.id, loggedInUser._token));
+        history.push('/tournaments');
     }
 
     const confirmRoundEnd = (evt) => {
@@ -71,7 +79,8 @@ const DirectorTools = ({ type }) => {
                                         </CardBody>
                                     ) : (
                                             <CardBody>
-                                                <Button color="secondary" outline onClick={handleStart}>Start tournament</Button>
+                                                <Button className="DirectorTools-button" color="secondary" outline onClick={handleStart}>Start tournament</Button>
+                                                <Button className="DirectorTools-button" color="danger" outline onClick={handleDelete}>Delete tournament</Button>
                                             </CardBody>
                                         )}
                                 </Card>

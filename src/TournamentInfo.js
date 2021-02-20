@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardFooter, CardBody, Button } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

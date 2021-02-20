@@ -35,11 +35,11 @@ const MatchGameCard = ({ game, team1, team2, type }) => {
             <Card>
                 <CardBody className="MatchGameCard-body">
                     <div className="MatchGameCard-player-container">
-                        <h5><span className={`MatchGameCard-color MatchGameCard-${players[1].color}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="MatchGameCard-link" href={`https://lichess.org/@/${players[1].player}`} target="_blank">{players[1].player}</a> | <span className="MatchGameCard-rating">{players[1].rating}</span></h5>
+                        <h5><span className={`MatchGameCard-color MatchGameCard-${players[1].color}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="MatchGameCard-link" href={`https://lichess.org/@/${players[1].player}`} target="_blank" rel="noreferrer">{players[1].player}</a> | <span className="MatchGameCard-rating">{players[1].rating}</span></h5>
                         {result ? <h5>{result.player1}</h5> : null}
                     </div>
                     <div className="MatchGameCard-player-container">
-                        <h5><span className={`MatchGameCard-color MatchGameCard-${players[2].color}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="MatchGameCard-link" href={`https://lichess.org/@/${players[2].player}`} target="_blank">{players[2].player}</a> | <span className="MatchGameCard-rating">{players[2].rating}</span></h5>
+                        <h5><span className={`MatchGameCard-color MatchGameCard-${players[2].color}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="MatchGameCard-link" href={`https://lichess.org/@/${players[2].player}`} target="_blank" rel="noreferrer">{players[2].player}</a> | <span className="MatchGameCard-rating">{players[2].rating}</span></h5>
                         {result ? <h5>{result.player2}</h5> : null}
                     </div>
                 </CardBody>

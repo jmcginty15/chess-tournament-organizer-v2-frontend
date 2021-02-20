@@ -1,6 +1,5 @@
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 import TournamentList from './TournamentList';
 import { BASE_URL } from './actions/config';
@@ -11,10 +10,12 @@ const TournamentsPage = () => {
     const [teamTournaments, setTeamTournaments] = useState(null);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/tournaments/ind/all`)
-            .then(res => setIndTournaments(res.data.tournaments));
-        axios.get(`${BASE_URL}/tournaments/team/all`)
-            .then(res => setTeamTournaments(res.data.tournaments));
+        setTimeout(() => {
+            axios.get(`${BASE_URL}/tournaments/ind/all`)
+                .then(res => setIndTournaments(res.data.tournaments));
+            axios.get(`${BASE_URL}/tournaments/team/all`)
+                .then(res => setTeamTournaments(res.data.tournaments));
+        }, 200);
     }, []);
 
     return (

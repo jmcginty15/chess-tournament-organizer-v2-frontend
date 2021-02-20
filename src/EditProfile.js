@@ -42,7 +42,7 @@ const EditProfile = () => {
                     email: user.email
                 })
             });
-    }, []);
+    }, [loggedInUser, username]);
 
     const handleChange = (evt) => {
         setFormData({

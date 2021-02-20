@@ -1,5 +1,5 @@
 import { BASE_URL } from './config';
-import { gotTournament, enteredTournament, createdTournament } from './ind_tournaments';
+import { gotTournament, enteredTournament, createdTournament, deletedTournament } from './ind_tournaments';
 import axios from 'axios';
 
 export const loadTeamTournament = (id) => {
@@ -65,6 +65,17 @@ export const endTeamTournament = (id, token) => {
         try {
             await axios.post(`${BASE_URL}/tournaments/team/${id}/end_tournament`, { _token: token });
             dispatch(loadTeamTournament(id));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export const deleteTeamTournament = (id, token) => {
+    return async function (dispatch) {
+        try {
+            await axios.delete(`${BASE_URL}/tournaments/team/${id}`, { data: { _token: token } });
+            dispatch(deletedTournament());
         } catch (err) {
             console.log(err);
         }

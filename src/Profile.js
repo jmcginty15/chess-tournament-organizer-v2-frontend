@@ -23,7 +23,7 @@ const Profile = () => {
             .then(res => setDirectedTournaments(res.data.tournaments));
         axios.get(`${BASE_URL}/users/${username}`)
             .then(res => setUser(res.data.user));
-    }, []);
+    }, [username]);
 
     return (
         <div className="Profile">

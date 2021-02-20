@@ -40,6 +40,7 @@ function App() {
           <Route exact path="/teams/:id">
             <TeamInfo />
           </Route>
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </div>

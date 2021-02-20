@@ -19,7 +19,7 @@ const StandingsCard = ({ entry, ended }) => {
                 <CardBody className="StandingsCard-body">
                     <div className="StandingsCard-grid">
                         <div><h4 className="StandingsCard-rating">{entry.place}</h4></div>
-                        <h4 className="StandingsCard-text"><a className="StandingsCard-link" href={`https://lichess.org/@/${entry.player}`} target="_blank">{entry.player}</a> | <span className="StandingsCard-rating">{entry.rating}</span>
+                        <h4 className="StandingsCard-text"><a className="StandingsCard-link" href={`https://lichess.org/@/${entry.player}`} target="_blank" rel="noreferrer">{entry.player}</a> | <span className="StandingsCard-rating">{entry.rating}</span>
                             <span className="StandingsCard-score-container">
                                 {entry.score}
                             </span>
