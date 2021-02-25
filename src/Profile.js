@@ -29,7 +29,7 @@ const Profile = () => {
         <div className="Profile">
             {username ? (
                 <div>
-                    <h1>{username}{username === loggedInUser.username ? (
+                    <h1><a className="Profile-link" href={`https://lichess.org/@/${username}`} target="_blank" rel="noreferrer">{username}</a>{username === loggedInUser.username ? (
                         <span> <Button type="button" outline color="secondary" onClick={() => followLink(`/users/${username}/edit`)}>Edit profile</Button></span>
                     ) : null}</h1>
                     {user ? <div><h3>{user.firstName} {user.lastName}</h3><h5>{user.email}</h5></div> : null}
