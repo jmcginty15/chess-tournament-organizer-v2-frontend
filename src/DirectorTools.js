@@ -8,6 +8,8 @@ import { countRemainingGames, countRemainingTeamGames } from './helpers/games';
 import './DirectorTools.css';
 
 const DirectorTools = ({ type }) => {
+    const [belowMin, setBelowMin] = useState(false);
+    const [unevenEntries, setUnevenEntries] = useState(false);
     const [confirmingRoundEnd, setConfirmingRoundEnd] = useState(false);
     const [confirmingTournamentEnd, setConfirmingTournamentEnd] = useState(false);
     const tournament = useSelector(state => state.tournaments.tournament);
@@ -15,13 +17,28 @@ const DirectorTools = ({ type }) => {
     const dispatch = useDispatch();
     const [startingTournament, setStartingTournament] = useState(false);
     const history = useHistory();
+    const extraPlayers = tournament.entries.length % tournament.teamSize;
 
     useEffect(() => {
         if (tournament.games || tournament.matches) setStartingTournament(false);
     }, [tournament]);
 
+    const handleStartClick = () => {
+        if (tournament.entries.length < tournament.minPlayers) setBelowMin(true);
+        else if (tournament.entries.length % tournament.teamSize !== 0) setUnevenEntries(true);
+        else handleStart();
+    }
+
+    const handleBelowMinStart = () => {
+        setBelowMin(false);
+        if (tournament.entries.length % tournament.teamSize !== 0) setUnevenEntries(true);
+        else handleStart();
+    }
+
     const handleStart = () => {
         if (loggedInUser.username === tournament.director) {
+            setBelowMin(false);
+            setUnevenEntries(false);
             setStartingTournament(true);
             if (type === 'I') dispatch(startTournament(tournament.id, loggedInUser._token));
             else dispatch(startTeamTournament(tournament.id, loggedInUser._token));
@@ -34,6 +51,8 @@ const DirectorTools = ({ type }) => {
     }
 
     const handleCancel = (evt) => {
+        setBelowMin(false);
+        setUnevenEntries(false);
         if (evt.target.id === 'end-round-cancel') setConfirmingRoundEnd(false);
         if (evt.target.id === 'end-tournament-cancel') setConfirmingTournamentEnd(false);
     }
@@ -58,7 +77,7 @@ const DirectorTools = ({ type }) => {
     }
 
     let remainingGames = null;
-    if (tournament && tournament.games) {
+    if (tournament && tournament.matches) {
         if (type === 'I') remainingGames = countRemainingGames(tournament.games, tournament.currentRound);
         if (type === 'T') remainingGames = countRemainingTeamGames(tournament.matches, tournament.currentRound);
     }
@@ -79,8 +98,31 @@ const DirectorTools = ({ type }) => {
                                         </CardBody>
                                     ) : (
                                             <CardBody>
-                                                <Button className="DirectorTools-button" color="secondary" outline onClick={handleStart}>Start tournament</Button>
-                                                <Button className="DirectorTools-button" color="danger" outline onClick={handleDelete}>Delete tournament</Button>
+                                                <div className="DirectorTools-div">
+                                                    {belowMin ? (
+                                                        <div>
+                                                            The mininmum number of players for this tournament is listed
+                                                            as {tournament.minPlayers}, but there are only {tournament.entries.length} players
+                                                            entered. Are you sure you want to start the tournament now?<br />
+                                                            <Button className="DirectorTools-button" color="success" outline onClick={handleBelowMinStart}>Start</Button>
+                                                            <Button className="DirectorTools-button" color="danger" outline onClick={handleCancel}>Don't start</Button>
+                                                        </div>
+                                                    ) : null}
+                                                    {unevenEntries ? (
+                                                        <div>
+                                                            This tournament has teams of {tournament.teamSize} players, but
+                                                            there are {tournament.entries.length} players currently entered.
+                                                            If you start the tournament now, the last {extraPlayers === 1 ? 'player' : `${extraPlayers} players`} who
+                                                            entered will be removed from the tournament due to not being
+                                                            able to fill a full team. Are you sure you want to start the
+                                                            tournament now?<br />
+                                                            <Button className="DirectorTools-button" color="success" outline onClick={handleStart}>Start</Button>
+                                                            <Button className="DirectorTools-button" color="danger" outline onClick={handleCancel}>Don't start</Button>
+                                                        </div>
+                                                    ) : null}
+                                                    {!belowMin && !unevenEntries ? <Button className="DirectorTools-button" color="secondary" outline onClick={handleStartClick}>Start tournament</Button> : null}
+                                                </div>
+                                                <div className="DirectorTools-div"><Button className="DirectorTools-button" color="danger" outline onClick={handleDelete}>Delete tournament</Button></div>
                                             </CardBody>
                                         )}
                                 </Card>
@@ -145,12 +187,12 @@ const DirectorTools = ({ type }) => {
                             ) : null}
                         </div>
                     ) : (
-                        <Card>
-                            <CardBody>
-                                <h5>This tournament has ended</h5>
-                            </CardBody>
-                        </Card>
-                    )}
+                            <Card>
+                                <CardBody>
+                                    <h5>This tournament has ended</h5>
+                                </CardBody>
+                            </Card>
+                        )}
                 </div>
             ) : null}
         </div>
