@@ -68,11 +68,11 @@ const TeamTournament = ({ id }) => {
                                     <TabPane tabId="3"><Card><TeamRoundSelect type="T" currentRound={tournament.currentRound} /></Card></TabPane>
                                 ) : null}
                                 {loggedInUser ? (
-                                    <div>
+                                    <TabPane tabId="4">
                                         {tournament.director === loggedInUser.username ? (
-                                            <TabPane tabId="4"><DirectorTools type="T" /></TabPane>
+                                            <div><DirectorTools type="T" /></div>
                                         ) : null}
-                                    </div>) : null}
+                                    </TabPane>) : null}
                             </TabContent>
                         </Nav>
                     </div>
