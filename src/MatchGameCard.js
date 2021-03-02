@@ -55,17 +55,20 @@ const MatchGameCard = ({ game, team1, team2, type }) => {
                     </CardBody>
                 ) : (
                         <div>
-                            {loggedInUser.username === players[1].player || loggedInUser.username === players[2].player ? (
-                                <CardBody className="MatchGameCard-schedule"><TeamScheduler game={game} type={type} white={white} black={black} /></CardBody>
-                            ) : (
-                                    <div>
-                                        {result ? null : (
+                            {loggedInUser ? (
+                                <div>
+                                    {loggedInUser.username === players[1].player || loggedInUser.username === players[2].player ? (
+                                        <CardBody className="MatchGameCard-schedule"><TeamScheduler game={game} type={type} white={white} black={black} /></CardBody>
+                                    ) : (
                                             <div>
-                                                {game.schedule ? <CardBody className="MatchGameCard-schedule"><h6>{parseDate(new Date(game.schedule))}</h6></CardBody> : null}
+                                                {result ? null : (
+                                                    <div>
+                                                        {game.schedule ? <CardBody className="MatchGameCard-schedule"><h6>{parseDate(new Date(game.schedule))}</h6></CardBody> : null}
+                                                    </div>
+                                                )}
                                             </div>
                                         )}
-                                    </div>
-                                )}
+                                </div>) : null}
                         </div>
                     )}
             </Card>

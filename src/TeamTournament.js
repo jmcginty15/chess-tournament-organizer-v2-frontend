@@ -44,11 +44,14 @@ const TeamTournament = ({ id }) => {
                                     <NavLink className="IndTournament-tab" active={activeTab === '3'} onClick={() => toggleTabs('3')}>Rounds</NavLink>
                                 </NavItem>
                             ) : null}
-                            {tournament.director === loggedInUser.username ? (
-                                <NavItem>
-                                    <NavLink className="IndTournament-tab" active={activeTab === '4'} onClick={() => toggleTabs('4')}>Director tools</NavLink>
-                                </NavItem>
-                            ) : null}
+                            {loggedInUser ? (
+                                <div>
+                                    {tournament.director === loggedInUser.username ? (
+                                        <NavItem>
+                                            <NavLink className="IndTournament-tab" active={activeTab === '4'} onClick={() => toggleTabs('4')}>Director tools</NavLink>
+                                        </NavItem>
+                                    ) : null}
+                                </div>) : null}
                             <TabContent activeTab={activeTab} className="TeamTournament-nav-content">
                                 <TabPane tabId="1"><EntryList entries={tournament.entries} /></TabPane>
                                 {tournament.currentRound > 0 ? (
@@ -64,9 +67,12 @@ const TeamTournament = ({ id }) => {
                                 {tournament.currentRound > 0 ? (
                                     <TabPane tabId="3"><Card><TeamRoundSelect type="T" currentRound={tournament.currentRound} /></Card></TabPane>
                                 ) : null}
-                                {tournament.director === loggedInUser.username ? (
-                                    <TabPane tabId="4"><DirectorTools type="T" /></TabPane>
-                                ) : null}
+                                {loggedInUser ? (
+                                    <div>
+                                        {tournament.director === loggedInUser.username ? (
+                                            <TabPane tabId="4"><DirectorTools type="T" /></TabPane>
+                                        ) : null}
+                                    </div>) : null}
                             </TabContent>
                         </Nav>
                     </div>
