@@ -5,6 +5,7 @@ import TournamentList from './TournamentList';
 import { BASE_URL } from './actions/config';
 import './TournamentsPage.css';
 
+// Page displaying lists of individual and team tournaments
 const TournamentsPage = () => {
     const [indTournaments, setIndTournaments] = useState(null);
     const [teamTournaments, setTeamTournaments] = useState(null);

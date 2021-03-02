@@ -2,6 +2,7 @@ import { Card, CardBody, Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import './TeamCard.css';
 
+// Card component for displaying team information
 const TeamCard = ({ team, ended }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);

@@ -7,6 +7,9 @@ import { startTeamTournament, endTeamRound, endTeamTournament, deleteTeamTournam
 import { countRemainingGames, countRemainingTeamGames } from './helpers/games';
 import './DirectorTools.css';
 
+// Director tools component
+// Displays on a tournament page if the logged in user is the director of that tournament
+// Provides buttons for starting or deleting the tournament, ending a round, or ending the tournament
 const DirectorTools = ({ type }) => {
     const [belowMin, setBelowMin] = useState(false);
     const [unevenEntries, setUnevenEntries] = useState(false);

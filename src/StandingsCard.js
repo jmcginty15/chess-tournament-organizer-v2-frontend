@@ -2,6 +2,7 @@ import { Card, CardBody, Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import './StandingsCard.css';
 
+// Card component for displaying a team or player in the StandingsList
 const StandingsCard = ({ entry, ended }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);

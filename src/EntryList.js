@@ -2,6 +2,7 @@ import { Card, CardBody } from 'reactstrap';
 import EntryCard from './EntryCard';
 import './EntryList.css';
 
+// List component for displaying EntryCards
 const EntryList = ({ entries }) => {
     return (
         <div className="EntryList">

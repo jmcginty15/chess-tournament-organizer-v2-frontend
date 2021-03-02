@@ -3,6 +3,7 @@ import { loadTournament } from './ind_tournaments';
 import axios from 'axios';
 
 export const scheduleGame = (id, schedule, token) => {
+    /** Schedules a game for an individual tournament */
     return async function (dispatch) {
         try {
             const res = await axios.post(`${BASE_URL}/games/ind/${id}/schedule`, { schedule: schedule, _token: token });
@@ -15,6 +16,7 @@ export const scheduleGame = (id, schedule, token) => {
 }
 
 export const reportGame = (id, lichessId, token) => {
+    /** Reports a game for an individual tournament */
     return async function (dispatch) {
         try {
             const res = await axios.post(`${BASE_URL}/games/ind/${id}/report`, { lichessId: lichessId, _token: token });

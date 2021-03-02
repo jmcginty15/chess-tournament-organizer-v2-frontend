@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     apiRequestUrl: 'https://lichess.org'
 }
 
+// Reducer to store app name and tagline and Lichess API URL
 const config = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         default:

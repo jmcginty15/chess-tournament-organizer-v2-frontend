@@ -1,6 +1,7 @@
 import { Button } from 'reactstrap';
 import { useSelector } from 'react-redux';
 
+// Displays user's entry status for the displayed tournament
 const InfoFooter = ({ started, full, alreadyEntered, handleClick }) => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
 

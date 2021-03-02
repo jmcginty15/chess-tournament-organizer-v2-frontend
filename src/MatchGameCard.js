@@ -6,6 +6,7 @@ import { parseDate } from './helpers/dates';
 import TeamScheduler from './TeamScheduler';
 import './MatchGameCard.css';
 
+// Card component for displaying games of a team match
 const MatchGameCard = ({ game, team1, team2, type }) => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const players = getPlayers(game, team1, team2);

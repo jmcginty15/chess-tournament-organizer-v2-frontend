@@ -2,6 +2,7 @@ import { Card, CardBody } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import './MemberCard.css';
 
+// Card component for displaying a member of a team
 const MemberCard = ({ member, board }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);

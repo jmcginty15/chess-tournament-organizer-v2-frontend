@@ -5,6 +5,7 @@ import { sortMatches } from './helpers/matches';
 import MatchList from './MatchList';
 import './TeamRoundSelect.css';
 
+// Displays a set of tabs corresponding to the rounds of a team tournament
 const TeamRoundSelect = ({ type, currentRound }) => {
     const tournament = useSelector(state => state.tournaments.tournament);
     const [rounds, setRounds] = useState(null);

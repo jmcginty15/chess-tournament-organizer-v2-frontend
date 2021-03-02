@@ -2,6 +2,7 @@ import { CardBody } from 'reactstrap';
 import TeamCard from './TeamCard';
 import './TeamList.css';
 
+// List component for displaying TeamCards in order of tournament standings
 const TeamList = ({ teams, ended }) => {
     return (
         <div className="TeamList">

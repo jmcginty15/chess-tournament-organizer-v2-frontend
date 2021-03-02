@@ -8,6 +8,7 @@ import { parseDate } from './helpers/dates';
 import Scheduler from './Scheduler';
 import './GameCard.css';
 
+// Card component for displaying tournament games
 const GameCard = ({ game, type }) => {
     const endpoint = type === 'I' ? 'ind' : 'team';
     const loggedInUser = useSelector(state => state.users.loggedInUser);

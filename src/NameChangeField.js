@@ -4,6 +4,8 @@ import { BASE_URL } from './actions/config';
 import axios from 'axios';
 import './NameChangeField.css';
 
+// Form component for changing the name of a team
+// Displays on the team page if the logged in user is a member of that team
 const NameChangeField = ({ reloadTeam, teamId, token }) => {
     const [name, setName] = useState('');
     const handleChange = (evt) => setName(evt.target.value);

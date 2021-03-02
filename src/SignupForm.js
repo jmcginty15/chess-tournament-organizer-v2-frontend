@@ -17,6 +17,7 @@ import './SignupForm.css';
 
 let timeout = null;
 
+// Form component for registering new users
 const SignupForm = () => {
     const dispatch = useDispatch();
     const [mismatch, setMismatch] = useState(false);

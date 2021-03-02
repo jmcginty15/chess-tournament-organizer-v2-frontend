@@ -10,6 +10,7 @@ import TournamentForm from './TournamentForm';
 import TeamInfo from './TeamInfo';
 import './App.css';
 
+// App component
 function App() {
   return (
     <div className="App">

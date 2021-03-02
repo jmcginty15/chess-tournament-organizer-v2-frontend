@@ -7,6 +7,8 @@ import axios from 'axios';
 import TournamentList from './TournamentList';
 import './Profile.css';
 
+// User profile component
+// Displays a button to edit the profile if the profile belongs to the logged in user
 const Profile = () => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const { username } = useParams();

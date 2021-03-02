@@ -13,6 +13,7 @@ import './TeamScheduler.css';
 const currentDate = moment();
 let timeout = null;
 
+// Form component for scheduling a game in a team tournament
 const TeamScheduler = ({ game, type, white, black }) => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector(state => state.users.loggedInUser);

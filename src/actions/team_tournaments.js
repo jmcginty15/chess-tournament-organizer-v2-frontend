@@ -3,6 +3,7 @@ import { gotTournament, enteredTournament, createdTournament, deletedTournament 
 import axios from 'axios';
 
 export const loadTeamTournament = (id) => {
+    /** Loads a team tournament to the app state */
     return async function (dispatch) {
         try {
             const res = await axios.get(`${BASE_URL}/tournaments/team/${id}`);
@@ -15,6 +16,7 @@ export const loadTeamTournament = (id) => {
 }
 
 export const enterTeamTournament = (id, username, token) => {
+    /** Enters the logged in user to a team tournament */
     return async function (dispatch) {
         try {
             const res = await axios.post(`${BASE_URL}/tournaments/team/${id}/${username}/enter`, { _token: token });
@@ -27,6 +29,7 @@ export const enterTeamTournament = (id, username, token) => {
 }
 
 export const createTeamTournament = (tournament) => {
+    /** Creates a team tournament */
     return async function (dispatch) {
         try {
             const res = await axios.post(`${BASE_URL}/tournaments/team/create`, tournament);
@@ -39,6 +42,7 @@ export const createTeamTournament = (tournament) => {
 }
 
 export const startTeamTournament = (id, token) => {
+    /** Starts a team tournament */
     return async function (dispatch) {
         try {
             await axios.post(`${BASE_URL}/tournaments/team/${id}/initialize`, { _token: token });
@@ -50,6 +54,7 @@ export const startTeamTournament = (id, token) => {
 }
 
 export const endTeamRound = (id, token) => {
+    /** Ends the current round of a team tournament */
     return async function (dispatch) {
         try {
             await axios.post(`${BASE_URL}/tournaments/team/${id}/end_round`, { _token: token });
@@ -61,6 +66,7 @@ export const endTeamRound = (id, token) => {
 }
 
 export const endTeamTournament = (id, token) => {
+    /** Ends a team tournament */
     return async function (dispatch) {
         try {
             await axios.post(`${BASE_URL}/tournaments/team/${id}/end_tournament`, { _token: token });
@@ -72,6 +78,7 @@ export const endTeamTournament = (id, token) => {
 }
 
 export const deleteTeamTournament = (id, token) => {
+    /** Deletes a team tournament */
     return async function (dispatch) {
         try {
             await axios.delete(`${BASE_URL}/tournaments/team/${id}`, { data: { _token: token } });

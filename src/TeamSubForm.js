@@ -2,6 +2,7 @@ import { FormGroup, Label, Input } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import './TournamentForm.css';
 
+// Subform component for creating team tournaments
 const TeamSubForm = ({ formData, tc, sendChange }) => {
     const [customTimeControl, setCustomTimeControl] = useState({
         start: parseFloat(tc.slice(0, tc.indexOf('|'))),

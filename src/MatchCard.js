@@ -7,6 +7,7 @@ import { parseMatchResult } from './helpers/matches';
 import MatchGameCard from './MatchGameCard';
 import './MatchCard.css';
 
+// Card component for displaying matches of a team tournament
 const MatchCard = ({ match, type }) => {
     const [team1, setTeam1] = useState(null);
     const [team2, setTeam2] = useState(null);

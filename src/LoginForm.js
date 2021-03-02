@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './LoginForm.css';
 
+// Form component for logging in
 const LoginForm = () => {
     const dispatch = useDispatch();
     const errMessage = useSelector(state => state.users.errMessage);

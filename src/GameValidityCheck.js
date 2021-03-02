@@ -1,5 +1,6 @@
 import './Scheduler.css';
 
+// Displays a message about the validity of an entered game URL
 const ValidityCheck = ({ validity }) => {
     if (!validity) return <p className="Scheduler-alert"><em>Invalid URL<br />
         Be sure to copy and paste the entire URL from your finished game</em></p>

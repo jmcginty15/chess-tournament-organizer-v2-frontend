@@ -4,6 +4,7 @@ import { capitalize } from './helpers/strings';
 import { parseDate } from './helpers/dates';
 import './TournamentCard.css';
 
+// Card component for displaying tournament information
 const TournamentCard = ({ tournament, type }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);

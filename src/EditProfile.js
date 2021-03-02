@@ -16,6 +16,7 @@ import { updateUser } from './actions/users';
 import './EditProfile.css';
 import axios from 'axios';
 
+// Form component for editing a user profile
 const EditProfile = () => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const history = useHistory();

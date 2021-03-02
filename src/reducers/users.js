@@ -2,6 +2,7 @@ import { LOGIN, LOGOUT, ERROR } from '../actions/config';
 
 const INITIAL_STATE = {};
 
+// Users reducer
 const users = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case LOGIN:

@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 export const processFormData = (data, customTimeControl, loggedInUser) => {
+    /** Configures form data for sending in an API request */
     if (data.timeControl === 'custom') data.timeControl = customTimeControl;
     data.director = loggedInUser.username;
     data._token = loggedInUser._token;

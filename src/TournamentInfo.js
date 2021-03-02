@@ -9,6 +9,8 @@ import { capitalize } from './helpers/strings';
 import InfoFooter from './InfoFooter';
 import './TournamentInfo.css';
 
+// Card component for displaying tournament information
+// Displays on tournament page
 const TournamentInfo = ({ tournament }) => {
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const tournEntries = useSelector(state => state.tournaments.tournament.entries);

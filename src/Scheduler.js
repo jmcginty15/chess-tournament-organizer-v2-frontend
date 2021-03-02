@@ -13,6 +13,8 @@ import './Scheduler.css';
 const currentDate = moment();
 let timeout = null;
 
+
+// Form component for scheduling a game
 const Scheduler = ({ game, type, white, black }) => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector(state => state.users.loggedInUser);

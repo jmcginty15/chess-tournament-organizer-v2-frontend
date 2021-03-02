@@ -1,4 +1,5 @@
 export const sortMatches = (matches) => {
+    /** Sorts tournament matches into rounds */
     const rounds = {};
     for (let match of matches) {
         const round = match.round;
@@ -8,9 +9,11 @@ export const sortMatches = (matches) => {
     return rounds;
 }
 
+// Converts match result string into scores for team 1 and team 2
 export const parseMatchResult = (result) => result.split('-');
 
 export const getPlayers = (game, team1, team2) => {
+    /** Gets participants in a team game */
     const team1Members = team1.members;
     const team2Members = team2.members;
 
@@ -30,6 +33,7 @@ export const getPlayers = (game, team1, team2) => {
 }
 
 export const parseTeamResult = (game, player1, player2) => {
+    /** Converts game result string into scores for white and black */
     if (!game.result) return null;
     const [whiteScore, blackScore] = game.result.split('-');
     const player1Score = player1.id === game.white ? whiteScore : blackScore;

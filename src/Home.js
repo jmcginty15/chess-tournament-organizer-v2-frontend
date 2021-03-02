@@ -10,6 +10,7 @@ import TournamentList from './TournamentList';
 import axios from 'axios';
 import './Home.css';
 
+// Site homepage
 const Home = () => {
     const app = useSelector(state => state.config.app);
     const loggedInUser = useSelector(state => state.users.loggedInUser);

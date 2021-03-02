@@ -9,6 +9,7 @@ import NameChangeField from './NameChangeField';
 import { checkMember } from './helpers/teams';
 import './TeamInfo.css';
 
+// Team info page
 const TeamInfo = () => {
     const [team, setTeam] = useState(null);
     const [tournament, setTournament] = useState(null);

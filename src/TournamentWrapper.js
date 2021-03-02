@@ -3,6 +3,7 @@ import IndTournament from './IndTournament';
 import TeamTournament from './TeamTournament';
 import './TournamentWrapper.css';
 
+// Displays IndTournament or TeamTournament component depending on params
 const TournamentWrapper = () => {
     const { idStr } = useParams();
     const type = idStr[0];

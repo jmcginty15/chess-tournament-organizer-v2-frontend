@@ -2,6 +2,7 @@ import { LOAD_TOURNAMENT, ENTER_TOURNAMENT, CREATE_TOURNAMENT, DELETE_TOURNAMENT
 
 const INITIAL_STATE = {};
 
+// Tournaments reducer
 const tournaments = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case LOAD_TOURNAMENT:

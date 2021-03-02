@@ -2,6 +2,8 @@ import { Card, CardBody } from 'reactstrap';
 import MatchCard from './MatchCard';
 import './MatchList.css';
 
+
+// List component for displaying MatchGameCards
 const MatchList = ({ matches, type }) => {
     return (
         <div className="MatchList">

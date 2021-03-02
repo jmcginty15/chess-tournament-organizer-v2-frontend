@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './EntryCard.css';
 
+// Card component for displaying a tournament entry
 const EntryCard = ({ entry }) => {
     const history = useHistory();
     const followLink = (route) => history.push(route);

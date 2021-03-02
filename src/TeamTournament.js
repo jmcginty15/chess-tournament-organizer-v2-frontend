@@ -9,6 +9,7 @@ import DirectorTools from './DirectorTools';
 import TeamRoundSelect from './TeamRoundSelect';
 import './TeamTournament.css';
 
+// Display page for team tournaments
 const TeamTournament = ({ id }) => {
     const [activeTab, setActiveTab] = useState('1');
     const tournament = useSelector(state => state.tournaments.tournament);

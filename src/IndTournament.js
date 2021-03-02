@@ -9,6 +9,7 @@ import DirectorTools from './DirectorTools';
 import RoundSelect from './RoundSelect';
 import './IndTournament.css';
 
+// Display page for individual tournaments
 const IndTournament = ({ id }) => {
     const [activeTab, setActiveTab] = useState('1');
     const tournament = useSelector(state => state.tournaments.tournament);

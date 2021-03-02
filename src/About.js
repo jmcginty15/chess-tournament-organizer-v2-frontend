@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import './About.css';
 
+// About page for the site
 const About = () => {
     const app = useSelector(state => state.config.app);
 

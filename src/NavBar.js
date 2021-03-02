@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom';
 import { logout } from './actions/users';
 import './NavBar.css';
 
+// Navbar component
 const NavBar = () => {
     const history = useHistory();
     const app = useSelector(state => state.config.app);

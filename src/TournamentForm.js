@@ -23,6 +23,7 @@ const openDate = moment();
 const closeDate = moment();
 closeDate.add(7, 'd');
 
+// Form component for creating tournaments
 const TournamentForm = () => {
     const history = useHistory();
     const loggedInUser = useSelector(state => state.users.loggedInUser);

@@ -1,4 +1,5 @@
 export const parseDate = (date) => {
+    /** Converts a date object to a displayable string */
     const year = date.getFullYear();
     const month = getMonth(date.getMonth());
     const day = date.getDate();
@@ -9,6 +10,7 @@ export const parseDate = (date) => {
 }
 
 const getMonth = (monthNum) => {
+    /** Extracts the month from a date object */
     switch (monthNum) {
         case 0:
             return 'Jan';
@@ -38,6 +40,7 @@ const getMonth = (monthNum) => {
 }
 
 const getDay = (dayNum) => {
+    /** Extracts the day of the week from a date object */
     switch (dayNum) {
         case 0:
             return 'Sun';
@@ -57,6 +60,7 @@ const getDay = (dayNum) => {
 }
 
 const parseTime = (hour, min) => {
+    /** Extracts the time from a date object */
     let ampm = null;
     if (hour === 0) {
         hour = 12;
