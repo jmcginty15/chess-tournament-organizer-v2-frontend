@@ -75,7 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Frontend
 
-The frontend of this app was created with [Create React App](https://github.com/facebook/create-react-app) and is deployed at [flexchess.surge.sh](https://flexchess.surge.sh).
+The frontend of this app was created with [Create React App](https://github.com/facebook/create-react-app) and is deployed at [flexchess.surge.sh](https://flexchess.surge.sh). A GitHub repository is available at [github.com/jmcginty15/chess-tournament-organizer-v2-frontend](https://github.com/jmcginty15/chess-tournament-organizer-v2-frontend).
 
 #### Creating an Account
 
@@ -119,7 +119,7 @@ The End Round and Tournament button ends both the current round and the tourname
 
 ### Backend
 
-The backend of this app was created using Express.js and is deployed at [flex-chess.herokuapp.com](https://flex-chess.herokuapp.com).
+The backend of this app was created using Express.js and is deployed at [flex-chess.herokuapp.com](https://flex-chess.herokuapp.com). A GitHub repository is available at [github.com/jmcginty15/chess-tournament-organizer-v2-backend](https://github.com/jmcginty15/chess-tournament-organizer-v2-backend).
 
 #### Player Ratings and Tournament Seeding
 
