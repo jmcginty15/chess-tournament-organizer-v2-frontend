@@ -43,7 +43,16 @@ const GameCard = ({ game, type }) => {
                     {result ? (
                         <div>
                             {black && (result.white !== 0 || result.black !== 0) ? (
-                                <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                                <div>
+                                    {game.url ? (
+                                        <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
+                                    ) : (
+                                        <div>
+                                            <h5>Forfeit</h5>
+                                            <h5>No game</h5>
+                                        </div>
+                                    )}
+                                </div>
                             ) : (
                                     <div className="GameCard-double-forfeit">{black ? <h5>Double forfeit</h5> : <h5>Bye</h5>}<h5>No game</h5></div>
                                 )}
