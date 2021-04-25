@@ -47,7 +47,7 @@ const GameCard = ({ game, type }) => {
                                     {game.url ? (
                                         <Button className="GameCard-button" color="secondary" outline onClick={() => followExternalLink(game.url)}>View game</Button>
                                     ) : (
-                                        <div>
+                                        <div className="GameCard-button-container">
                                             <h5>Forfeit</h5>
                                             <h5>No game</h5>
                                         </div>
