@@ -80,7 +80,7 @@ const DirectorTools = ({ type }) => {
     }
 
     let remainingGames = null;
-    if (tournament && tournament.matches) {
+    if (tournament && (tournament.matches || tournament.games)) {
         if (type === 'I') remainingGames = countRemainingGames(tournament.games, tournament.currentRound);
         if (type === 'T') remainingGames = countRemainingTeamGames(tournament.matches, tournament.currentRound);
     }
