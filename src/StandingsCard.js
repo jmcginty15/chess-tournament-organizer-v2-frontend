@@ -26,7 +26,7 @@ const StandingsCard = ({ entry, ended }) => {
                             </span>
                         </h4>
                         <div>
-                            <Button className="StandingsCard-button" outline color="secondary" onClick={() => followLink(`/entries/${entry.id}`)}>Player Details</Button>
+                            <Button className="StandingsCard-button" outline color="secondary" onClick={() => followLink(`/users/${entry.player}`)}>Player Details</Button>
                         </div>
                     </div>
                 </CardBody>
