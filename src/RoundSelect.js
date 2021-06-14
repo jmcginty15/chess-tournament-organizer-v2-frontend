@@ -24,7 +24,7 @@ const RoundSelect = ({ type, currentRound }) => {
             {rounds ? (
                 <Nav tabs className="RoundSelect-nav">
                     {Object.keys(rounds).map(round => (
-                        <NavItem>
+                        <NavItem key={`${round}-nav`}>
                             <NavLink className="RoundSelect-tab" active={activeTab === `${round}`} onClick={() => toggleTabs(`${round}`)}>Round {round}</NavLink>
                         </NavItem>
                     ))}

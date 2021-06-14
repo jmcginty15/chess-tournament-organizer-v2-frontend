@@ -1,0 +1,65 @@
+.ForfeitSelectCard {
+    text-align: left;
+}
+
+.ForfeitSelectCard-body {
+    display: grid;
+    grid-template-columns: 5% 5% 50% 5% 35%;
+}
+
+.ForfeitSelectCard-rating {
+    color: grey;
+}
+
+.ForfeitSelectCard-color {
+    border: solid black;
+    border-width: thin;
+    width: 20px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.ForfeitSelectCard-white {
+    background-color: white;
+}
+
+.ForfeitSelectCard-black {
+    background-color: black;
+}
+
+.ForfeitSelectCard-top {
+    margin-bottom: 20px;
+}
+
+.ForfeitSelectCard-button-container {
+    width: 100%;
+    text-align: right;
+}
+
+.ForfeitSelectCard-button {
+    float: right;
+}
+
+.ForfeitSelectCard-link {
+    color: black;
+}
+
+.ForfeitSelectCard-double-forfeit {
+    width: 100%;
+    text-align: right;
+}
+
+.ForfeitSelectCard-input-container {
+    padding-top: 3px;
+    height: 50%;
+}
+
+.ForfeitSelectCard-alert {
+    width: 100%;
+    text-align: right;
+    font-size: small;
+    color: red;
+    margin-top: 0;
+    margin-top: 3px;
+}

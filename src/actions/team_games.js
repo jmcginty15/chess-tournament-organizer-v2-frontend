@@ -27,3 +27,16 @@ export const reportTeamGame = (id, lichessId, token) => {
         }
     }
 }
+
+export const assignTeamForfeit = (id, winner, token) => {
+    /** Assigns a forfeit to a game of a team tournament */
+    return async function (dispatch) {
+        try {
+            const res = await axios.post(`${BASE_URL}/games/team/${id}/forfeit`, { winner: winner, _token: token});
+            const game = res.data.game;
+            dispatch(loadTeamTournament(game.tournament));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}

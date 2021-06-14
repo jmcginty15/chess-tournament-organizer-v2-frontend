@@ -71,7 +71,7 @@ const IndTournament = ({ id }) => {
                                 {loggedInUser ? (
                                     <TabPane tabId="4">
                                         {tournament.director === loggedInUser.username ? (
-                                            <div><DirectorTools type="I" /></div>
+                                            <div><DirectorTools type="I" currentRound={tournament.currentRound} /></div>
                                         ) : null}
                                     </TabPane>) : null}
                             </TabContent>
