@@ -27,8 +27,8 @@ const DirectorTools = ({ type, currentRound }) => {
 
     useEffect(() => {
         if (tournament.games || tournament.matches) setStartingTournament(false);
-        if (tournament && type === "I") setRounds(sortGames(tournament.games));
-        else if (tournament && type === "T") setRounds(sortMatches(tournament.matches));
+        if (tournament.games && type === "I") setRounds(sortGames(tournament.games));
+        else if (tournament.matches && type === "T") setRounds(sortMatches(tournament.matches));
     }, [tournament]);
 
     const handleStartClick = () => {
@@ -110,8 +110,8 @@ const DirectorTools = ({ type, currentRound }) => {
                                                 {belowMin ? (
                                                     <div>
                                                         The mininmum number of players for this tournament is listed
-                                                            as {tournament.minPlayers}, but there are only {tournament.entries.length} players
-                                                            entered. Are you sure you want to start the tournament now?<br />
+                                                        as {tournament.minPlayers}, but there are only {tournament.entries.length} players
+                                                        entered. Are you sure you want to start the tournament now?<br />
                                                         <Button className="DirectorTools-button" color="success" outline onClick={handleBelowMinStart}>Start</Button>
                                                         <Button className="DirectorTools-button" color="danger" outline onClick={handleCancel}>Don't start</Button>
                                                     </div>
@@ -119,11 +119,11 @@ const DirectorTools = ({ type, currentRound }) => {
                                                 {unevenEntries ? (
                                                     <div>
                                                         This tournament has teams of {tournament.teamSize} players, but
-                                                            there are {tournament.entries.length} players currently entered.
-                                                            If you start the tournament now, the last {extraPlayers === 1 ? 'player' : `${extraPlayers} players`} who
-                                                            entered will be removed from the tournament due to not being
-                                                            able to fill a full team. Are you sure you want to start the
-                                                            tournament now?<br />
+                                                        there are {tournament.entries.length} players currently entered.
+                                                        If you start the tournament now, the last {extraPlayers === 1 ? 'player' : `${extraPlayers} players`} who
+                                                        entered will be removed from the tournament due to not being
+                                                        able to fill a full team. Are you sure you want to start the
+                                                        tournament now?<br />
                                                         <Button className="DirectorTools-button" color="success" outline onClick={handleStart}>Start</Button>
                                                         <Button className="DirectorTools-button" color="danger" outline onClick={handleCancel}>Don't start</Button>
                                                     </div>
@@ -148,12 +148,12 @@ const DirectorTools = ({ type, currentRound }) => {
                                                             <div>
                                                                 <p>
                                                                     There {remainingGames === 1 ? 'is' : 'are'} {remainingGames} game{remainingGames === 1 ? '' : 's'} yet
-                                                            to be reported this round. These will be counted as double
-                                                            forfeits if not reported before you end the round.
-                                                        </p>
+                                                                    to be reported this round. These will be counted as double
+                                                                    forfeits if not reported before you end the round.
+                                                                </p>
                                                                 <p>
                                                                     Are you sure you want to end the round now?
-                                                        </p>
+                                                                </p>
                                                             </div>
                                                         )}
                                                         <Button id="end-round-confirm" color="success" outline onClick={confirmRoundEnd}>Confirm</Button>
@@ -171,19 +171,19 @@ const DirectorTools = ({ type, currentRound }) => {
                                                         {remainingGames === 0 ? null : (
                                                             <p>
                                                                 There {remainingGames === 1 ? 'is' : 'are'} {remainingGames} game{remainingGames === 1 ? '' : 's'} yet
-                                                            to be reported this round. These will be counted as double
-                                                            forfeits if not reported before you end the round.
+                                                                to be reported this round. These will be counted as double
+                                                                forfeits if not reported before you end the round.
                                                             </p>
                                                         )}
                                                         {tournament.currentRound === tournament.rounds ? null : (
                                                             <p>
                                                                 The tournament is scheduled for {tournament.rounds} rounds,
-                                                            but it is currently only round {tournament.currentRound}.
+                                                                but it is currently only round {tournament.currentRound}.
                                                             </p>
                                                         )}
                                                         <p>
                                                             Are you sure you want to end the tournament now?
-                                                    </p>
+                                                        </p>
                                                     </div>
                                                 )}
                                                 <Button id="end-tournament-confirm" color="success" outline onClick={confirmRoundEnd}>Confirm</Button>
