@@ -1,5 +1,6 @@
 import { Button, Card, CardBody } from 'reactstrap';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BASE_URL } from './actions/config';
 import axios from 'axios';
@@ -10,11 +11,13 @@ import './GameCard.css';
 
 // Card component for displaying tournament games
 const GameCard = ({ game, type }) => {
+    const history = useHistory();
     const endpoint = type === 'I' ? 'ind' : 'team';
     const loggedInUser = useSelector(state => state.users.loggedInUser);
     const [white, setWhite] = useState(null);
     const [black, setBlack] = useState(null);
     const result = game.result ? parseResult(game.result) : null;
+    const followLink = (route) => history.push(route);
     const followExternalLink = (url) => window.open(url, '_blank');
 
     useEffect(() => {
@@ -33,8 +36,8 @@ const GameCard = ({ game, type }) => {
                         {black ? <h4 className="GameCard-rating">{black.place}</h4> : null}
                     </div>
                     <div>
-                        {white ? <h4 className="GameCard-top">{black ? <span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : null}&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank" rel="noreferrer">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span></h4> : null}
-                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank" rel="noreferrer">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span></h4> : <h4>Bye</h4>}
+                        {white ? <h4 className="GameCard-top">{black ? <span className="GameCard-color GameCard-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : null}&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${white.player}`} target="_blank" rel="noreferrer">{white.player}</a> | <span className="GameCard-rating">{white.rating}</span> {loggedInUser && loggedInUser.username !== white.player && <Button className="GameCard-button" color="secondary" outline size="sm" onClick={() => followLink(`/users/${white.player}`)}>Contact</Button>}</h4> : null}
+                        {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank" rel="noreferrer">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span> {loggedInUser && loggedInUser.username !== black.player && <Button className="GameCard-button" color="secondary" outline size="sm" onClick={() => followLink(`/users/${black.player}`)}>Contact</Button>}</h4> : <h4>Bye</h4>}
                     </div>
                     <div>
                         {result ? <h4 className="GameCard-top">{result.white}</h4> : null}
