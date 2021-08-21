@@ -4,7 +4,7 @@
 
 .GameCard-body {
     display: grid;
-    grid-template-columns: 5% 55% 5% 35%;
+    grid-template-columns: 5% 55% 10% 30%;
 }
 
 .GameCard-rating {
@@ -48,4 +48,9 @@
 .GameCard-double-forfeit {
     width: 100%;
     text-align: right;
+}
+
+.GameCard-score {
+    text-align: right;
+    margin-left: 15px;
 }

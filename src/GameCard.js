@@ -40,8 +40,8 @@ const GameCard = ({ game, type }) => {
                         {black ? <h4><span className="GameCard-color GameCard-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<a className="GameCard-link" href={`https://lichess.org/@/${black.player}`} target="_blank" rel="noreferrer">{black.player}</a> | <span className="GameCard-rating">{black.rating}</span> {loggedInUser && loggedInUser.username !== black.player && <Button className="GameCard-button" color="secondary" outline size="sm" onClick={() => followLink(`/users/${black.player}`)}>Contact</Button>}</h4> : <h4>Bye</h4>}
                     </div>
                     <div>
-                        {result ? <h4 className="GameCard-top">{result.white}</h4> : null}
-                        {result ? <h4>{result.black}</h4> : null}
+                        {result ? <h4 className="GameCard-top GameCard-score">{result.white}</h4> : null}
+                        {result ? <h4 className="GameCard-score">{result.black}</h4> : null}
                     </div>
                     {result ? (
                         <div>
